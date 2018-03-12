@@ -1,5 +1,4 @@
 <?php 
-
 class Funciones {
 	public function conectar() {
 		$host = "localhost";

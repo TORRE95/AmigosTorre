@@ -29,6 +29,39 @@ function inicioSesion() {
 	}
 } 
 
+function registrar() {
+	var nombre = document.getElementById("nombre").value;
+	var apellidos = document.getElementById("apellidos").value;
+	var mail = document.getElementById("mail").value;
+	var pass1 = document.getElementById("pass1").value;
+	var pass2 = document.getElementById("pass2").value;
+	if (nombre != "" && mail != "" && pass1 != "" && pass2 != "" && apellidos != "") {
+		if (pass1 == pass2) {
+			registroAjax = new XMLHttpRequest();
+			registroAjax.open('GET', "php/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1+"&apellidos"+apellidos);
+			registroAjax.send();
+			registroAjax.onreadystatechange = function(){
+				if (registroAjax.readyState == 4 && registroAjax.status == 200) {
+					
+					if (registroAjax.responseText=="1") {
+						console.log(registroAjax.responseText);
+						//lo que hace cuando sale bien el registro
+						location.href="inicio.html";
+					}
+					else{
+
+						// lo que quieras hacer si no se registra bien
+					}
+				}
+			}
+		}
+	}
+}
+
+function terminos() {
+	alert("hola");
+}
+
 function redireccion1(){
 	window.location="acercaDe.html";
 }
