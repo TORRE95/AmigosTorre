@@ -5,21 +5,18 @@
 	<title>Make-Up Me - Bienvenido</title>
 	<script type="text/javascript" src="funciones.js"></script>
 </head>
-<body>
+<body onload="noBack();">
 	<h1>Make-Up Me</h1>
-
-	<form method="POST">
-		<label>
-			Correo Electrónico:
-			<input type="text" name="mail" id="mail" required>
-		</label><br><br>
-		<label>
-			Contraseña:
-			<input type="password" name="pass" id="pass" required>
-		</label><br><br>
-		<input type="submit" name="iniciar" value="Iniciar Sesión" onclick="inicioSesion();">
-	</form><br>
-	<a href="registro.php">¿No tienes cuenta? ¡Regístrate ahora!</a>
+	<label>
+		Correo Electrónico:
+		<input type="text" name="mail" id="mail" required>
+	</label><br><br>
+	<label>
+		Contraseña:
+		<input type="password" name="pass" id="pass" required>
+	</label><br><br>
+	<input type="button" name="iniciar" value="Iniciar Sesión" onclick="inicioSesion();"><br><br>
+	<a href="registro.html">¿No tienes cuenta? ¡Regístrate ahora!</a>
 	<script type="text/javascript">window.addEventListener('load', inicioSesion, true);</script>
 </body>
 </html>

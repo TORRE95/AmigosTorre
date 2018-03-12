@@ -1,0 +1,63 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.tips1{
+	position: absolute;
+	top: 15%;
+	left: 50%
+	bottom: 50%;
+	right: 25%;
+	z-index: 9999;
+	height: 80%;
+	width: 50%;
+	border: 1px solid black;
+	background-color: red;
+}
+.tips2{
+	position: absolute;
+	top: 15%;
+	left: 50%
+	bottom: 50%;
+	right: 25%;
+	z-index: 9999;
+	height: 80%;
+	width: 50%;
+	border: 1px solid black;
+	background-color: green;
+}
+.tips3{
+	position: absolute;
+	top: 15%;
+	left: 50%
+	bottom: 50%;
+	right: 25%;
+	z-index: 9999;
+	height: 80%;
+	width: 50%;
+	border: 1px solid black;
+	background-color: blue;
+}
+.ubica{
+	position: absolute;
+	top: 15%;
+	left: 50%
+	bottom: 50%;
+	right: 25%;
+	z-index: 9999;
+	height: 80%;
+	width: 50%;
+	background-color: green;
+}
+.adquiere{
+	position: absolute;
+	top: 15%;
+	left: 50%
+	bottom: 50%;
+	right: 25%;
+	z-index: 9999;
+	height: 80%;
+	width: 50%;
+	background-color: blue;
+}

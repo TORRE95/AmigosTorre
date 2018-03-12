@@ -28,3 +28,34 @@ function inicioSesion() {
 		}
 	}
 } 
+
+function redireccion1(){
+	window.location="acercaDe.html";
+}
+
+
+function redireccion2(){
+	window.location="app.html";
+}
+
+function noBack() {
+	window.location.hash="no-back-button";
+	window.location.hash="Again-No-back-button";
+	window.onhashchange=function(){
+		window.location.hash="";
+	}
+}
+
+function tips() {
+	var section = "<div class='tips1'><p>TIPS</p></div>"
+	document.querySelector('section').innerHTML += section;
+}
+
+function ubica() {
+	var section = "<div class='tips2'><p>UBICA A TU ESTILISTA</p></div>"
+	document.querySelector('section').innerHTML = section;
+}
+function adquiere() {
+	var section = "<div class='tips3'><p>ADQUIERE</p></div>"
+	document.querySelector('section').innerHTML = section;
+}
