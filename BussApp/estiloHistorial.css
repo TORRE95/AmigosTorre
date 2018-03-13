@@ -5,6 +5,22 @@
 	margin: 0px;
 	padding: 0px;
 }
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: white;
+}
+.header{
+
+	background-color: rgba(0, 1, 33, 1);
+	height: 100px;
+	position: relative;
+	width: 100%;
+	color: white;
+	padding: 10px;
+}
+.titulo{
+	margin-top: 30px;
+}
 
 .viaje{
 
