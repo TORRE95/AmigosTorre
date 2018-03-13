@@ -58,9 +58,35 @@ function registrar() {
 	}
 }
 
-function terminos() {
-	alert("hola");
+function cerrar() {
+	lol = document.getElementById('btnCerrar')
+	lol.style.backgroundColor = "transparent";
+	lol.style.border="none";
+	lol.style.zIndex ="-9"
+	lol.innerHTML = "";
+
 }
+
+function terminos() {
+	seccion = document.getElementById('btnCerrar');
+	seccion.className = "section";
+	var section = 
+			"<button style='float: right;' onclick='cerrar();''>Cerrar</button>"+
+			"<br><br><br><br><br><br><br><br>"+
+			"<center>"+
+				"<div class='text'>"+
+					"<big>"+
+						"Usted acepta nuestros términos y condiciones, tanto si quiere adquirir el modo Premium, ya que obtendrá ciertos beneficios al tenerlo, pero no podrá descargar ningún video de la sección de asesores, ya que esto se consideraría ilegal por los derechos de autor."+
+						"En el modo gratuito tendrá pocos beneficios, los cuales su intensión es que pueda ver de que trata la aplicación, y para poder obtener le resto de los tips y videos, usted tendrá que descargar el modo Premium."+
+						"No nos hacemos responsables por el mal uso del maquillaje, ya que lo que viene aquí son consejos especializados que se deben seguir paso a paso para obtener el trabajo deseado."+
+					"</big>"+
+				"</div>"+
+			"</center>";
+	document.querySelector('section').innerHTML = section;
+
+}
+
+
 
 function redireccion1(){
 	window.location="acercaDe.html";
@@ -80,12 +106,20 @@ function noBack() {
 }
 
 function tips() {
-	var section = "<div class='tips1'><p>TIPS</p></div>"
+	var section = 
+		"<div class='tips1'>"+
+			"<p>TIPS</p> <br><br><br><br>"+
+			"<iframe width='560' height='315'"+ 
+				"src='https://www.youtube.com/embed/4NhTfaHXCaQ' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>"+
+		"</div>"
 	document.querySelector('section').innerHTML += section;
 }
 
 function ubica() {
-	var section = "<div class='tips2'><p>UBICA A TU ESTILISTA</p></div>"
+	var section = 
+	"<div class='estilistas'>"+
+		"<p>Perfiles de estilistas</p>"+
+	"</div>"
 	document.querySelector('section').innerHTML = section;
 }
 function adquiere() {

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Make-Up Me - Registro</title>
 	<script type="text/javascript" src="funciones.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body onload="noBack();">
 	<form method="POST" action="inicio.html">
@@ -29,11 +30,12 @@
 			Confirmar contraseña:
 			<input type="password" name="pass2" id="pass2" required>
 		</label><br><br>
-		<button onclick="terminos();">Términos y condiciones</button><br><br><br>
+		<button type="button" onclick="terminos();">Términos y condiciones</button><br><br><br>
 		<input type="submit" name="registro" value="Registro" onclick="registrar();">
 	</form>
 	<br><br>
 	<a href="index.html">¿Ya tienes cuenta? ¡Inicia sesión para continuar!</a>
+	<section  id="btnCerrar"></section>
 	<script type="text/javascript">window.addEventListener('load', registrar, true);</script>
 </body>
 </html>
