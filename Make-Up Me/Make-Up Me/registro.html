@@ -3,39 +3,50 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Make-Up Me - Registro</title>
-	<script type="text/javascript" src="funciones.js"></script>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<title>Make-Up Me</title>
 </head>
 <body onload="noBack();">
-	<form method="POST" action="inicio.html">
-		<h1>Registro</h1>
-		<label>
-			Nombre: 
-			<input type="text" name="nombre" id="nombre" required>
-		</label><br><br>
-		<label>
-			Apellidos:
-			<input type="text" name="apellidos" id="apellidos" required>
-		</label><br><br>
-		<label>
-			Correo:
-			<input type="mail" name="mail" id="mail" required>
-		</label><br><br>
-		<label>
-			Contraseña: 
-			<input type="password" name="pass1" id="pass1" required>
-		</label><br><br>
-		<label>
-			Confirmar contraseña:
-			<input type="password" name="pass2" id="pass2" required>
-		</label><br><br>
-		<button type="button" onclick="terminos();">Términos y condiciones</button><br><br><br>
-		<input type="submit" name="registro" value="Registro" onclick="registrar();">
-	</form>
-	<br><br>
-	<a href="index.html">¿Ya tienes cuenta? ¡Inicia sesión para continuar!</a>
+	<!-- <center> -->
+		<br><center><h1 class="font-italic">Registro</h1></center><br><br>
+		<form action="inicio.html">
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="nombre">Nombre</label>
+		      <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="apellidos">Apellidos</label>
+		      <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="mail">Correo electrónico</label>
+		      <input type="mail" class="form-control" id="mail" placeholder="Correo electrónico">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="pass1">Contraseña</label>
+		    <input type="password" class="form-control" id="pass1" placeholder="Contraseña">
+		  </div>
+		  <div class="form-group">
+		    <label for="pass2">Confirmar contraseña</label>
+		    <input type="password" class="form-control" id="pass2" placeholder="Confirmar contraseña">
+		  </div>
+		  <a href="terminos.html">Términos y condiciones</a>	<br><br>	  
+		  <center><button type="submit" id="button" class="btn btn-primary" onclick="registrar();">Registro</button></center>
+		</form>
+		<br>
+		<center><a href="index.html" id="link">¿Ya tienes cuenta? ¡Inicia sesión para continuar!</a><br><br></center>
+	<!-- </center> -->
 	<section  id="btnCerrar"></section>
 	<script type="text/javascript">window.addEventListener('load', registrar, true);</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

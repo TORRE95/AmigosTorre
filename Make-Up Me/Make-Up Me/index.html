@@ -2,21 +2,37 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Make-Up Me - Bienvenido</title>
-	<script type="text/javascript" src="funciones.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<title>Make-Up Me</title>
 </head>
 <body onload="noBack();">
-	<h1>Make-Up Me</h1>
-	<label>
-		Correo Electrónico:
-		<input type="text" name="mail" id="mail" required>
-	</label><br><br>
-	<label>
-		Contraseña:
-		<input type="password" name="pass" id="pass" required>
-	</label><br><br>
-	<input type="button" name="iniciar" value="Iniciar Sesión" onclick="inicioSesion();"><br><br>
-	<a href="registro.html">¿No tienes cuenta? ¡Regístrate ahora!</a>
-	<script type="text/javascript">window.addEventListener('load', inicioSesion, true);</script>
+	<br><br><br>
+	<center><big><h1 id="titulo">Make-Up Me</h1></big></center>
+	<br><br><br><br>
+	<center>
+		<div class="input-group mb-3">
+	  		<div class="input-group-prepend">
+	   			<span class="input-group-text" id="basic-addon1">@</span>
+	  		</div>
+	  		<input type="mail" class="form-control" placeholder="Correo"  aria-describedby="basic-addon1" id="mail">
+		</div><br><br>
+		<div class="input-group mb-3">
+	  		<div class="input-group-prepend">
+	   			<span class="input-group-text" id="basic-addon1">&#128273;</span>
+	  		</div>
+	  		<input type="password" class="form-control" placeholder="Contraseña"  aria-describedby="basic-addon1" id="pass">
+		</div>
+		<br><br>
+		<input type="button" id="button" value="Iniciar Sesión" onclick="inicioSesion();" class="btn btn-primary"><br><br>
+		<a href="registro.html" id="link">¿No tienes cuenta? ¡Regístrate ahora!</a>
+	</center>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

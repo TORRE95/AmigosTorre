@@ -1,0 +1,115 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #fcecfc;
+	background: linear-gradient(to right, rgba(251,166,225,0.55) 0%, rgba(255,124,216,0.16) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fba6e1', endColorstr='#ff7cd8', GradientType=1 );
+}
+li{
+	list-style: none;
+}
+#imgPerfil{
+	position: relative;
+	margin-top: 10%;
+}
+#scroll{
+	position: relative;
+}
+#texto{
+	font-size: 25px;
+	font-family: 'Berkshire Swash', cursive;
+}
+#button{
+	background: #f763cd;
+	border-color: #f763cd;
+}
+#btnInicio{
+	width: 50%;
+	background: #f763cd;
+	border-color: #f763cd;
+}
+
+#logo{
+	position: absolute;
+	bottom: -25%;
+	left: 30%;
+	font-family: 'Tangerine', serif; 
+	font-size: 25px;
+}
+
+#titulo{
+	font-family: 'Tangerine', serif; 
+	font-size: 75px;
+}
+#link{
+	color: #f763cd;
+}
+
+#logOut{
+	color: #6d0202;
+}
+
+#retacho{
+	background-color: #f763cd;
+}
+
+#img{
+	width: 50px;
+	height: 50px;
+}
+
+
+#frase{
+	font-size: 18px;
+}
+#id{
+	position: absolute;
+	left: 0;
+}
+.tips1{
+	text-align: center;
+	position: absolute;
+	top: 13.8%;
+	bottom: 50%;
+	z-index: 9999;
+	width: 100%;
+}
+.estilistas{
+	text-align: center;
+	position: absolute;
+	top: 13.8%;
+	bottom: 50%;
+	right: 13.5%;
+	z-index: 9999;
+	width: 100%;
+}
+.tips3{
+	text-align: center;
+	position: absolute;
+	top: 15%;
+	bottom: 50%;
+	right: 13.5%;
+	z-index: 9999;
+	height: 80%;
+	width: 75%;
+	border: 1px solid black;
+	background-color: blue;
+}
+.section{
+	background-color: pink;
+	width: 70%;
+	height: 70%;
+	position: absolute;
+	left: 15%;
+	top: 15%;
+}
+.text{
+	font-size: 20px;
+	text-align: center;
+}
+#tituloNav{
+	font-family: 'Tangerine', serif; 
+	font-size: 50px;
+}
