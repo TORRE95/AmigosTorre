@@ -44,7 +44,7 @@ function registrar() {
 					
 					if (registroAjax.responseText=="1") {
 						//lo que hace cuando sale bien el registro
-						window.location.assign('inicio.html');
+						window.location.assign('index.html');
 					}
 					else{
 
