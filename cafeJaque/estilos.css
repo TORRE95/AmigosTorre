@@ -21,7 +21,8 @@ html{
 }
 body{
 	height: 100%;
-	 background: linear-gradient(to bottom, #f77a54, #e84919, #af2800);
+	color: white;
+	 background: linear-gradient(to bottom, #ce0606, #c61b1b, #a52a2a);
 }
 h1{
 	text-align: center;
