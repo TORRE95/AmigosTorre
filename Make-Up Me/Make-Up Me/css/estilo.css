@@ -1,14 +1,37 @@
 *{
 	padding: 0;
 	margin: 0;
+	font-family: 'Amatic SC', cursive;
+	font-size: 18px;
 }
 body{
 	background: #fcecfc;
 	background: linear-gradient(to right, rgba(251,166,225,0.55) 0%, rgba(255,124,216,0.16) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fba6e1', endColorstr='#ff7cd8', GradientType=1 );
 }
+#form{
+	font-size: 25px;
+}
 li{
 	list-style: none;
+}
+.registro{
+	font-family: 'Amatic SC', cursive;
+	font-size: 75px;
+}
+.margenTitulo{
+	margin: 15% 15% 25% 15%;
+}
+.margen{
+	/*top, rightm bottom, left*/
+	margin: 1% 10% 7% 10% !important;
+}
+#margen{
+	/*top, rightm bottom, left*/
+	margin: 1% 10% 7% 10%;
+}
+.hide{
+	z-index: -999999999999999999999;
 }
 #imgPerfil{
 	position: relative;
@@ -19,7 +42,7 @@ li{
 }
 #texto{
 	font-size: 25px;
-	font-family: 'Berkshire Swash', cursive;
+	font-family: 'Amatic SC', cursive;
 }
 #button{
 	background: #f763cd;
@@ -32,16 +55,13 @@ li{
 }
 
 #logo{
-	position: absolute;
-	bottom: -25%;
-	left: 30%;
 	font-family: 'Tangerine', serif; 
 	font-size: 25px;
 }
 
 #titulo{
 	font-family: 'Tangerine', serif; 
-	font-size: 75px;
+	font-size: 72px;
 }
 #link{
 	color: #f763cd;
@@ -63,6 +83,9 @@ li{
 
 #frase{
 	font-size: 18px;
+}
+#grande{
+	font-size: 25px;
 }
 #id{
 	position: absolute;
@@ -111,5 +134,9 @@ li{
 }
 #tituloNav{
 	font-family: 'Tangerine', serif; 
-	font-size: 50px;
+	font-size: 45px;
+}
+.video{
+	margin-left: -10% !important;
+	margin-right: -10% !important;
 }

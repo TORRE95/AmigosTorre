@@ -97,33 +97,33 @@ function noBack() {
 
 function tips() {
 	var section = 
-		"<div class='tips1'><br>"+
-			"<p id='texto'>TIPS</p><br>"+
+			"<center><b><p id='grande'>TIPS</p></b></center>"+
 			"<center>"+
 				"<div class='video'>"+
 					"<iframe width='90%' height='180px' src='https://www.youtube.com/embed/4NhTfaHXCaQ' "+
 					"frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>"+
 				"</div>"+
 			"</center>"+
+			"<div id='margen'>"+
 			"<div>"+
 				"<ul class='list-unstyled'>"+
 				 	"<li class='media'>"+
 					    "<div class='media-body'>"+
-					      "<h5 class='mt-0 mb-1'>Quema con un encendedor la punta del delineador de ojos</h5>"+
+					      "<b><p class='mt-0 mb-1' id='grande'>Quema con un encendedor la punta del delineador de ojos</p></b>"+
 					      "Agarra tu lápiz delineador de ojos y con ayuda de un encendedor coloca la llama en la punta por un segundo, deja que se enfríe un poco y notarás el cambio en su consistencia. Además, así es menos probable que el trazo se corra."+
 					    "</div>"+
 				  	"</li>"+
 				  	"<img class='mr-3' src='images/Make-up-3.webp' width='200px' height='150px' alt='1'><li><br></li>"+
 				 	"<li class='media'>"+
 					    "<div class='media-body'>"+
-					      "<h5 class='mt-0 mb-1'>Si quieres que tu sombras resalten, pinta primero tu párpado con delineador blanco</h5>"+
+					      "<b><p class='mt-0 mb-1' id='grande'>Si quieres que tu sombras resalten, pinta primero tu párpado con delineador blanco</p></b>"+
 					     "Para que la sombra de ojos destaque, toma un lápiz delineador de color blanco y rellena tus párpados. El tono opaco del blanco hará más intenso cualquier color de sombra que apliques."+
 					    "</div>"+
 			  		"</li>"+
 				  	"<img class='mr-3' src='images/3.webp' width='200px' height='150px' alt='2'><li><br></li>"+
 				 	"<li class='media'>"+
 					    "<div class='media-body'>"+
-					      "<h5 class='mt-0 mb-1'>Para hacer el estilo “ojo de gato”, primero dibuja el contorno dejando un espacio abierto</h5>"+
+					      "<b><p class='mt-0 mb-1' id='grande'>Para hacer el estilo “ojo de gato”, primero dibuja el contorno dejando un espacio abierto</p></b>"+
 					      "Es más fácil lograr un “ojo de gato” si primero pintas el contorno y después rellenas el espacio interior con un pincel."+
 					    "</div>"+
 				  	"</li>"+
@@ -207,15 +207,19 @@ function ubica() {
 	var nav =  document.getElementById('navbarSupportedContent');
 	nav.className = "collapse navbar-collapse";
 }
-
+// function hide() {
+// 	//var boton = document.getElementById('boton');
+// 	var agenda = document.getElementById('article');
+// 	agenda.setAtribute( "hide");
+// }
 function verPerfil() {
 	var perfil =
 	"<div>"+
 		"<center>"+
-			"<img src='images/est1.jpg' alt='1' width='200px' height='200px' id='imgPerfil'></center><br>"+
-			"<p>Marco Antonio Lira González</p><br>"+
+			"<img src='images/est1.jpg' alt='1' width='200px' height='200px' id='imgPerfil'><br>"+
+			"<b><p>Marco Antonio Lira González</p>"+
 			"<p>Celaya, Guanajuato</p>"+
-			"<p>mail@mail.com</p>"+
+			"<p>mail@mail.com</p></center>"+
 			"<p>Si desean lucir hermosas y radiantes eneventos sociales, el maquillista profesional Marco Antonio les "+
 			"ofrecerá un servicio de calidad garantizada cuidando cada detalle."+
 			" Para esta profesional, su belleza es sumamente importante, pues sabe que deben lucir hermosas y seguras."+
@@ -223,21 +227,30 @@ function verPerfil() {
 			"Marco Antonio pondrá a su disposición un excelente paquete de servicios para cualquier evento social."+
 			" Cuentan con servicio para novias, XV años y eventos sociales. El trabajo de esta profesional es fino y bien cuidado."+
 			" Cuentan con servicio de maquillaje en alta definición para las fotos y alto peinado.</p>"+
-			"<p>Calificación: 4.8/5</p>"+
-			"<button class='btn btn-secondary' onclick='agendar()';>Agendar cita</button>"
-		"</center>"+
+			"<center><p>Calificación: 4.8 / 5</p></b>"+
+			"</center>"+
+			"<div class='dropdown'>"+
+				"<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown'"+
+				" aria-haspopup='true' aria-expanded='false'>Agendar cita</button>"+
+				"<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>"+
+					"<div class='margen'>"+
+						"<b><p>Elige un día y la hora: </p><input type='datetime-local' class='form-control'></b><br>"+
+						"<button class='btn btn-secondary' onclick='redireccion3()'>Pagar</button>"+
+					"</div>"+
+				"</div>"+
+			"</div>"+
 	"</div>";
 	document.querySelector('section').innerHTML = perfil;
 }
-
-function agendar(){
-	var cita = 
-	"<div>"+
-		"Elige un día y la hora: <input type='datetime-local' class='form-control'><br>"+
-		"<button class='btn btn-secondary' onclick='redireccion3()'>Pagar</button>"
-	"</div>";
-	document.querySelector('article').innerHTML = cita;
-}
+// "<div id='margen'>"+
+// 		"<b><p>Elige un día y la hora: </p><input type='datetime-local' class='form-control'></b><br>"+
+// 		"<button class='btn btn-secondary' onclick='redireccion3()'>Pagar</button>"+
+// 	"</div>";
+// function agendar(){
+// 	var cita = 
+	
+// 	document.querySelector('article').innerHTML = cita;
+// }
 
 function adquiere() {
 	var section = "<div class='tips3'><p>ADQUIERE</p></div>"
@@ -246,6 +259,7 @@ function adquiere() {
 
 function tarjetas(){
 	var section = 
+	"<b>"+
 		"<h2 class='font-italic'>Tarjeta de crédito/débito</h2><br>"+
 		"<div class='form-group'>"+
 			"<label>"+
@@ -297,7 +311,8 @@ function tarjetas(){
 		"</div>"+
 		"<div>"+
 			"<center><input type='button' id='button' value='Pagar' class='btn btn-primary' onclick='redireccionX()'></center>"+
-		"</div>";
+		"</div>"+
+	"</b>";
 	document.querySelector('section').innerHTML = section;
 }
 
@@ -321,11 +336,11 @@ function redireccionX(){
 
 function efectivo(){
 	var section =
-		"<center>"+
+		"<center class='text-justify'>"+
 			" <p id='texto'>Una vez pagado el servicio que requieres de Make-up-me"+
-			" en tu establecimiento preferido, tendrás que ingresar el código de barras para validar el pago.</p><br>"+
+			" en tu establecimiento preferido, tendrás que ingresar el código de barras para validar el pago.</p>"+
 			"<input type='number' placeholder='Número del código de barras' class='form-control'><br>"+
-			"<button onclick='redireccion2()' class='btn btn-primary' id='button'>Continuar</button>"+
+			"<center><button onclick='redireccion2()' class='btn btn-primary' id='button'>Continuar</button></center>"+
 		"</center>";
 	document.querySelector('section').innerHTML = section;
 }
