@@ -2,18 +2,22 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="funciones.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilosPago.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 	<form method="POST">
 		<label>
-			Nombre del titular de la tarjeta
+			Nombre del titular <br> de la tarjeta <br>
 			<input type="text" name="nombre" required>
-		</label><br>
+		</label><br><br>
 		<label>
-			Número de tarjeta
+			Número de tarjeta <br>
 			<input type="number" name="numeroTarjeta" minlength="16" maxlength="16" required>
-		</label><br>
-		Fecha de vencimiento
+		</label><br><br>
+		Fecha de vencimiento <br><br>
 		<select name="mes">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -41,12 +45,12 @@
 			<option value="2027">2027</option>
 			<option value="2028">2028</option>
 			<option value="2029">2029</option>
-		</select><br>
+		</select><br><br>
 		<label>
-			Código de Verificación
+			Código de Verificación <br>
 			<input type="number" name="cv" required  minlength="3" maxlength="3">
 		</label><br><br>
-		<input type="submit" name="agregar" value="Agregar Tarjeta">
+		<input type="submit" name="agregar" value="Pagar">
 	</form>
 </body>
 </html>

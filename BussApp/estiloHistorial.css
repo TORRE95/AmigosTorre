@@ -11,7 +11,7 @@ a:link, a:visited, a:hover, a:active {
 }
 .header{
 
-	background-color: rgba(0, 1, 33, 1);
+	background-color:#71B280;
 	height: 100px;
 	position: relative;
 	width: 100%;
@@ -21,6 +21,10 @@ a:link, a:visited, a:hover, a:active {
 .titulo{
 	margin-top: 30px;
 }
+html{
+	height: 100%;
+}
+
 
 .viaje{
 
