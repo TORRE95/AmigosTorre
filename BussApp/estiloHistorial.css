@@ -4,6 +4,8 @@
 	font-family: 'Montserrat', sans-serif;
 	margin: 0px;
 	padding: 0px;
+
+	list-style-type: none; 
 }
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
@@ -40,6 +42,7 @@ html{
 	border-style: solid;
 	border-color: rgba(233,236,236,1);
 	border-width: 1.5px;
+
 }
 
 .viajeIzq, .viajeDer{

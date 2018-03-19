@@ -6,5 +6,6 @@ function mostrar(){
         abre.style.display = "none";
     } else {
         abre.style.display = "block";
+        abre.style.zIndex = "99999";
     }
 }
