@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">	
+	<link rel="stylesheet" type="text/css" href="css/fonts/Amatic/amatic_font.css">	
+</head>
+	<title>Make-Up Me</title>
+<body onload="noBack();">
+	<!-- <center> -->
+		<br><center><big><h1 id="txtReg">Registro</h1></big></center><br><br>
+		<form action="inicio.html" id="form" class="margen">
+		  <div>
+		    <div>
+		      <label for="nombre">Nombre</label>
+		      <input type="text" id="nombre" class="inputNone" required>
+		    </div>
+		    <div>
+		      <label for="apellidos">Apellidos</label>
+		      <input type="text" id="apellidos" class="inputNone" required>
+		    </div>
+		    <div>
+		      <label for="mail">Correo electrónico</label>
+		      <input type="mail" id="mailR" class="inputNone" required>
+		    </div>
+		  </div>
+		  <div>
+		    <label for="pass1">Contraseña</label>
+		    <input type="password" id="pass1" class="inputNone" required>
+		  </div>
+		  <div>
+		    <label for="pass2">Confirmar contraseña</label>
+		    <input type="password" id="pass2" class="inputNone" required>
+		  </div>
+		  <a href="terminos.html" id="linkReg">Términos y condiciones</a><br><br><br>
+		  <center><input type="submit" value="Registro" class="button" id="btnReg" onclick="registrar();"></center>
+		</form>
+		<br>
+		<center><a href="index.html" id="link">¿Ya tienes cuenta? ¡Inicia sesión para continuar!</a><br><br></center>
+	<!-- </center> -->
+	<section  id="btnCerrar"></section>
+	<script type="text/javascript">window.addEventListener('load', registrar, true);</script>
+</body>
+</html>
