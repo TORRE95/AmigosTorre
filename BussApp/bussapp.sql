@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-03-2018 a las 22:12:54
+-- Tiempo de generación: 02-04-2018 a las 21:31:18
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -19,6 +19,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bussapp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `idHistoria` int(3) NOT NULL,
+  `ruta` varchar(10) NOT NULL,
+  `importe` decimal(4,2) NOT NULL,
+  `fecha` date NOT NULL,
+  `correo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tarjetas`
+--
+
+CREATE TABLE `tarjetas` (
+  `idTarjeta` int(3) NOT NULL,
+  `numTarjeta` int(16) NOT NULL,
+  `fechaVencimiento` date NOT NULL,
+  `CV` int(3) NOT NULL,
+  `idUsuario` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -41,6 +69,21 @@ CREATE TABLE `usuarios` (
 --
 
 --
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`idHistoria`),
+  ADD UNIQUE KEY `correo` (`correo`);
+
+--
+-- Indices de la tabla `tarjetas`
+--
+ALTER TABLE `tarjetas`
+  ADD PRIMARY KEY (`idTarjeta`),
+  ADD UNIQUE KEY `numTarjeta` (`numTarjeta`),
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -52,26 +95,20 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `idHistoria` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `tarjetas`
+--
+ALTER TABLE `tarjetas`
+  MODIFY `idTarjeta` int(3) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUsuario` int(3) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `historial` (
-  `idHistoria` int(3) NOT NULL,
-  `ruta` varchar(50) NOT NULL,
-  `importe` decimal(6,2) NOT NULL,
-  `fecha` date NOT NULL,
-  `correo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `historial`
---
-
-
-ALTER TABLE `historial`
-  ADD PRIMARY KEY (`idHistoria`);
