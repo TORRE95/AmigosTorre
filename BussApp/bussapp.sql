@@ -61,18 +61,17 @@ ALTER TABLE `usuarios`
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 CREATE TABLE `historial` (
-  `idHistorial` int(3) NOT NULL,
-  `idUsuario` int(3) NOT NULL,
-  `Monto` decimal(6,2) NOT NULL,
-  `nombreArchivo` varchar(150) NOT NULL
+  `idHistoria` int(3) NOT NULL,
+  `ruta` varchar(50) NOT NULL,
+  `importe` decimal(6,2) NOT NULL,
+  `fecha` date NOT NULL,
+  `correo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `historial`
 --
 
-INSERT INTO `historial` (`idHistorial`, `idUsuario`, `Monto`, `nombreArchivo`) VALUES
-(1, 20, '50.00', 'Arcivho1');
 
 ALTER TABLE `historial`
-  ADD PRIMARY KEY (`idHistorial`);
+  ADD PRIMARY KEY (`idHistoria`);

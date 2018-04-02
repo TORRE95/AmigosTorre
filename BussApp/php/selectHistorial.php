@@ -1,5 +1,5 @@
 <?php 
-
+	require 'conexion.php';
 	$funciones = new Funciones();
 	$conexion = $funciones->conectar();
 	$conexion->set_charset("utf8");
