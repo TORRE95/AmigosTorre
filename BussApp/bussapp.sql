@@ -59,3 +59,20 @@ ALTER TABLE `usuarios`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `historial` (
+  `idHistorial` int(3) NOT NULL,
+  `idUsuario` int(3) NOT NULL,
+  `Monto` decimal(6,2) NOT NULL,
+  `nombreArchivo` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`idHistorial`, `idUsuario`, `Monto`, `nombreArchivo`) VALUES
+(1, 20, '50.00', 'Arcivho1');
+
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`idHistorial`);
