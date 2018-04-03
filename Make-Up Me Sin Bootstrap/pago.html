@@ -4,11 +4,31 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
 	<script type="text/javascript" src="js/funciones.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">	
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">	
 	<link rel="stylesheet" type="text/css" href="css/fonts/Amatic/amatic_font.css">
 	<title>Make-Up Me</title>
 </head>
-<body><br>
+<body>
+	<p class="logoApp" onclick="redireccion2();">Make-Up Me®</p>
+	<nav style="z-index: 99999999999999999;">
+        <div class="topnav" id="myTopnav">
+
+            <b><a onclick="tips();" style="cursor: pointer;" class="navLink">Tips de maquillaje</a></b>
+
+            <b><a onclick="ubica();" style="cursor: pointer;" class="navLink">Ubica a tu estilista más cercano</a></b>
+
+            <b><a onclick="redireccion3();" style="cursor: pointer;" class="navLink">App Premium</a></b>
+
+            <b><a onclick="redireccion1();" style="cursor: pointer;" class="navLink">Acerca de nosotros</a></b>
+
+            <b><a href="index.html" id="logOut" style="cursor: pointer;" class="navLink">Cerrar sesión</a></b>
+
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="nav();">&#9776;</a>
+
+        </div>
+    </nav>
+	<br>
 	<center><big><h1 class="elige">Elige una forma de pago</h1></big></center>
 	<div class="btnPago">
 		<center>
