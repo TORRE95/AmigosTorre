@@ -4,25 +4,21 @@ function inicioSesion() {
 	var pass = document.getElementById('pass').value;
 	if(mail != "" && pass != ""){
 		inicioAjax = new XMLHttpRequest();
-		inicioAjax.open('POST', "php/selectUsuarios.php");
+		inicioAjax.open('GET', 'php/selectUsuarios.php?mail='+mail+'&pass='+pass);
 		inicioAjax.send();
 		inicioAjax.onreadystatechange = function(){
 			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
-				inicio = JSON.parse(inicioAjax.responseText);
-				for (var i = 0; i < inicio.length; i++) {
-
-					if(mail == inicio[i].correo && pass == inicio[i].pass){
-						sessionStorage.setItem("nombre", inicio[i].nombre);
-						location.href = "dashboard.html";
-						break;
-					}else{
-						if (inicio[i] == inicio.length && mail != inicio[i].correo) {
-							alert("Correo y/o contraseña incorrectos")
-						}else if(inicio[i] == inicio.length && pass == inicio[i].pass){
-							alert("Correo y/o contraseña incorrectos")
-						}
+				//inicio = JSON.parse(inicioAjax.responseText);
+				if (inicioAjax.responseText=="0") {
+						window.location.assign('dashboard.html');
 					}
-				}
+
+				if (inicioAjax.responseText == "1") {
+							window.location.assign('dashboardS.html');
+						}
+				if (inicioAjax.responseText == "Error") {
+							alert("Datos incorrectos.");
+						}
 				
 				
 			}
@@ -46,7 +42,7 @@ function registrar() {
 					if (registroAjax.responseText=="1") {
 						sessionStorage.setItem("nombre", nombre);
 						//lo que hace cuando sale bien el registro
-						location.href='dashboard.html';
+						location.href='index.html';
 					}
 					else{
 
@@ -75,7 +71,7 @@ function registrarServidor() {
 					if (registroAjax.responseText=="1") {
 						sessionStorage.setItem("nombre", nombre);
 						//lo que hace cuando sale bien el registro
-						window.location.assign('dashboard.html');
+						window.location.assign('index.html');
 					}
 					else{
 
