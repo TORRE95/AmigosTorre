@@ -3,9 +3,9 @@
 class Funciones {
 	public function conectar() {
 		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$db = "bussApp";
+		$user = "id5128008_root";
+		$pass = "12345";
+		$db = "id5128008_bussapp";
 
 		$conexion = new mysqli($host, $user, $pass, $db);
 
