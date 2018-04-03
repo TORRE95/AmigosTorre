@@ -168,7 +168,14 @@ function tips() {
 	nav.className = "collapse navbar-collapse";
 }
 
+function ubica2(){
+	window.location="app.html";
+	setTimeout(function(){ ubica(); }, 200);
+}
+
 function ubica() {
+
+
 	var cerca = "<center><p class='cerca'>Estilistas cerca de ti: </p></center>";
 	document.querySelector("h1").innerHTML = cerca;
 	var borrar = "";
