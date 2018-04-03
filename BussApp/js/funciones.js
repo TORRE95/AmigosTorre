@@ -37,3 +37,66 @@ function cargarHistorial() {
 		}
 	}
 }
+
+function registrar() {
+	
+	
+	var nombre = document.getElementById("nombre").value;
+	var apellido = document.getElementById("ape").value;
+	var mail = document.getElementById("mail").value;
+	var pass1 = document.getElementById("pass1").value;
+	var pass2 = document.getElementById("pass2").value;
+	var celular = document.getElementById("num").value;
+
+	if (nombre != "" && mail != "" && pass1 != "" && pass2 != "" && apellido != "" && celular != "" && pass1 == pass2) {
+	
+	
+			registroAjax = new XMLHttpRequest();
+			registroAjax.open('GET', "php/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass="+pass1+"&ape="+apellido+"&cel="+celular);
+			registroAjax.send();
+			alert("¡Registrado exitosamente!");
+
+			registroAjax.onreadystatechange = function(){
+				if (registroAjax.readyState == 4 && registroAjax.status == 200) {
+					
+					if (registroAjax.responseText=="1") {
+						//lo que hace cuando sale bien el registro
+						window.location.href='index.html';
+					}
+					else{
+
+						alert("Error inesperado, intente más tarde")
+					}
+				}
+			}
+		
+	}
+}
+
+function inicioSesion() {
+	console.log("iniciando");
+	
+	var celular = document.getElementById('cel').value;
+
+	var pass = document.getElementById('pass').value;
+
+
+
+	if(celular != "" && pass != ""){
+		inicioAjax = new XMLHttpRequest();
+		inicioAjax.open('GET', 'php/selectUsuarios.php?cel='+celular+'&pass='+pass);
+		inicioAjax.send();
+		inicioAjax.onreadystatechange = function(){
+			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
+				if (inicioAjax.responseText!="0") {
+						localStorage.setItem('idUsuario', inicioAjax.responseText);
+						window.location.assign('inicio.html');
+					}else{
+						alert("Datos incorrectos.")
+					}
+				
+				
+			}
+		}
+	}
+} 
