@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="estiloDashboard.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="CSS/estiloDashboard.css">
+	<link rel="stylesheet" type="text/css" href="CSS/FontAwesome/fontawesome-all.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
@@ -19,23 +19,31 @@
 	<div class="contenedor">
 		<div class="panel">
 			<div class="menu">
-				<div class="item">
-					<a href=""><h3>Item</h3></a>
+				<div class="item" style="background-color: #A52A2A;">
+					<a href=""><h2>Pedidos</h2></a>
 				</div>
 				<div class="item">
-					<a href=""><h3>Item</h3></a>
+					<a href="Productos.html"><h3>Agregar Productos</h3></a>
 				</div>
 				<div class="item">
-					<a href=""><h3>Item</h3></a>
+					<a href=""><h3>Cerrar Sesión</h3></a>
 				</div>
 			</div>
 		</div>
 		<div class="contenido">
-			<div class="estadisticas">
-				<span>Aquí se ven las ordenes de venta, ingresos, estadisticas a modo de cuadrados</span>
-			</div>
 			<div class="modulos">
-				<span>Aquí modulos random a modo de tarjetas (Cuadrados)</span>
+				<div class="orden">
+					<div class="numero"><label>#5814</label></div>
+					<div class="hora"><label>10:55</label></div>
+				</div>
+				<div class="articulos">
+					<ul>
+						<li>item 1</li>
+						<li>item 2</li>
+						<li>item 3</li>
+					</ul>
+				</div>
+				<div class="total"><label>$515.52</label></div>
 			</div>
 		</div>
 	</div>

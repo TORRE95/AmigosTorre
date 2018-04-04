@@ -10,16 +10,16 @@
 <body>
 <h1>BussApp</h1>
 
-<form action="" method="POST">
+<form>
 	<label>
 		Número de Celular:
-		<input type="number" name="numero" required>
+		<input type="number" name="cel" id="cel" required>
 	</label><br><br>
 	<label>
 		Contraseña: <br>
-		<input type="password" name="pass" required>
+		<input type="password" name="pass" id="pass" required>
 	</label><br><br>
-	<input type="submit" name="iniciar" value="Iniciar Sesión" onclick="location.href = 'inicio.html';">
+	<input type="submit" name="iniciar" value="Iniciar Sesión" onclick="inicioSesion()">
 </form><br>
 <div class="footer">
 <a href="registro.html">¿No tienes cuenta? ¡Regístrate ahora!</a>

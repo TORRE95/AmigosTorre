@@ -1,20 +1,20 @@
 <?php 
-
+	require 'conexion.php';
 	$funciones = new Funciones();
 	$conexion = $funciones->conectar();
 	$conexion->set_charset("utf8");
 
 	//Recibimos las variables
-	if (!empty($_POST)) {
-		$ruta = $_POST['ruta'];
-		$importe = $_POST['importe'];
-		$correo = $_POST['mail'];
+	
+		$ruta = $_GET['ruta'];
+		$importe = $_GET['monto'];
+		$id = $_GET['idUsuario'];
 
 		//Insertamos datos en la bd
-		$query = "INSERT INTO historial (Ruta, Importe, Correo) VALUES('$ruta', '$importe', '$correo');";
+		$query = "INSERT INTO historial (Ruta, Importe, idUsuario) VALUES('$ruta', '$importe', '$id');";
 		$insertar = $conexion->query($query);
 
-		echo json_encode($insertar);
-	}
+		echo($insertar);
+	
 
  ?>

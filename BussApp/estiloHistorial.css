@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+	font-family: 'Montserrat', sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: white;
+}
+.header{
+
+	background-color:#71B280;
+	height: 100px;
+	position: relative;
+	width: 100%;
+	color: white;
+	padding: 10px;
+}
+.titulo{
+	margin-top: 30px;
+}
+html{
+	height: 100%;
+}
+
+
+.viaje{
+
+	
+	padding: 5px;
+	margin-top: 10px;
+	width: 90%;
+	height: 30px;
+	left: 15px;
+	background-color: rgba(233,236,236,0.5);
+	position: relative;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: rgba(233,236,236,1);
+	border-width: 1.5px;
+}
+
+.viajeIzq, .viajeDer{
+
+	float: left;
+	position: absolute;
+	margin-left: 20px;
+}
+.viajeDer{
+	right: 5px;
+}

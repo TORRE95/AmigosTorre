@@ -1,5 +1,5 @@
 <?php 
-	
+	header('Access-Control-Allow-Origin: *');
 	function iniciarSesion()
 	{
 		require_once 'conexion.php';

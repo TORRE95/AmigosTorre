@@ -2,9 +2,9 @@
 class Funciones {
 	public function conectar() {
 		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$db = "makeUpMe";
+		$user = "id5127933_root";
+		$pass = "12345";
+		$db = "id5127933_makeup";
 
 		$conexion = new mysqli($host, $user, $pass, $db);
 
