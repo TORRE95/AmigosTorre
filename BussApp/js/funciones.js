@@ -38,6 +38,169 @@ function cargarHistorial() {
 	}
 }
 
+
+
+
+function rutaA() {
+
+	localStorage.setItem('ruta', 1);
+	window.location.href='pago.html';
+}
+
+function rutaB() {
+
+	localStorage.setItem('ruta', 2);
+	window.location.href='pago.html';
+}
+
+function rutaC() {
+
+	localStorage.setItem('ruta', 3);
+	window.location.href='pago.html';
+}
+function rutaD() {
+
+	localStorage.setItem('ruta', 4);
+	window.location.href='pago.html';
+}
+
+function insertarHistorial(){
+
+
+
+	var ruta = localStorage.getItem('ruta');
+
+	
+	switch(ruta){
+
+		case '1':
+
+			var ruta = "Ruta A";
+			var monto = 12.00;
+			var idUsuario = localStorage.getItem('idUsuario');
+
+			//alert(idUsuario);
+			nuevoRegistroAjax = new XMLHttpRequest();
+			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.send();
+			alert("Pagado exitosamnte!");
+
+			nuevoRegistroAjax.onreadystatechange = function(){
+
+				if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
+
+
+							
+							if (nuevoRegistroAjax.responseText=="1") {
+								//lo que hace cuando sale bien el registro
+								//window.location.href='index.html';
+								alert("Insertado al historial");
+							}
+							else{
+
+								alert("Error inesperado, intente más tarde")
+							}
+						}
+					}
+				break;
+
+
+		case '2':
+			
+			var ruta = "Ruta B";
+			var monto = 8.00;
+			var idUsuario = localStorage.getItem('idUsuario');
+			
+
+
+			nuevoRegistroAjax = new XMLHttpRequest();
+			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.send();
+
+			nuevoRegistroAjax.onreadystatechange = function(){
+				console.log("pagado");
+
+				if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
+							
+							if (nuevoRegistroAjax.responseText=="1") {
+								//lo que hace cuando sale bien el registro
+								//window.location.href='index.html';
+								alert("Insertado al historial");
+							}
+							else{
+
+								alert("Error inesperado, intente más tarde")
+							}
+						}
+					}
+				break;
+
+
+		case '3':
+
+
+			var ruta = "Ruta C";
+			var monto = 9.50;
+			var idUsuario = localStorage.getItem('idUsuario');
+
+			//alert(idUsuario);
+			nuevoRegistroAjax = new XMLHttpRequest();
+			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.send();
+
+			nuevoRegistroAjax.onreadystatechange = function(){
+				console.log("pagado");
+
+				if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
+							
+							if (nuevoRegistroAjax.responseText=="1") {
+								//lo que hace cuando sale bien el registro
+								//window.location.href='index.html';
+								alert("Insertado al historial");
+							}
+							else{
+
+								alert("Error inesperado, intente más tarde")
+							}
+						}
+					}
+				break;
+
+
+		case '4':
+
+				var ruta = "Ruta D";
+				var monto = 15.00;
+				var idUsuario = localStorage.getItem('idUsuario');
+
+				//alert(idUsuario);
+				nuevoRegistroAjax = new XMLHttpRequest();
+				nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+				nuevoRegistroAjax.send();
+
+				nuevoRegistroAjax.onreadystatechange = function(){
+					console.log("pagado");
+
+					if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
+								
+								if (nuevoRegistroAjax.responseText=="1") {
+									//lo que hace cuando sale bien el registro
+									//window.location.href='index.html';
+									alert("Insertado al historial");
+								}
+								else{
+
+									alert("Error inesperado, intente más tarde")
+								}
+							}
+						}
+				break;
+
+
+	}
+
+}
+
 function registrar() {
 	
 	
@@ -100,3 +263,6 @@ function inicioSesion() {
 		}
 	}
 } 
+
+
+
