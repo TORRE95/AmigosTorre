@@ -38,12 +38,15 @@ CREATE TABLE `historial` (
 -- Estructura de tabla para la tabla `orden`
 --
 
+
+
 CREATE TABLE `orden` (
   `idOrden` int(3) NOT NULL,
   `idUsuario` int(3) NOT NULL,
   `idCafe` int(3) NOT NULL,
   `Monto` decimal(6,2) NOT NULL,
   `descripcion` varchar(150) NOT NULL,
+  `Hora` varchar(15) NOT NULL DEFAULT '10:50 am',
   `Completado` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -71,7 +74,6 @@ CREATE TABLE `usuarios` (
   `idUsuario` int(3) NOT NULL,
   `tipoUsuario` int(2) NOT NULL DEFAULT '0',
   `Nombre` varchar(30) NOT NULL,
-  `Apellidos` varchar(50) NOT NULL,
   `Correo` varchar(100) NOT NULL,
   `Password` varchar(500) NOT NULL,
   `FechaRegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
