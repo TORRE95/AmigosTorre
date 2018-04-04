@@ -4,7 +4,9 @@
 	$conexion = $funciones->conectar();
 	$conexion->set_charset("utf8");
 
-	$query = "SELECT * FROM historial;";
+	$id = $_GET['id'];
+
+	$query = "SELECT * FROM historial WHERE idUsuario = $id;";
 	$resultado = $conexion->query($query);
 	$arreglo = array();
 	while ($r = $resultado->fetch_object()) {
@@ -12,8 +14,8 @@
 			"idHistoria"=>$r->idHistoria,
 			"ruta"=>$r->ruta,
 			"importe"=>$r->importe,
-			"fecha"=>$r->fecha,
-			"correo"=>$r->correo
+			"fecha"=>$r->fecha
+			
 		));
 	}
 

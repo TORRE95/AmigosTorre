@@ -11,8 +11,10 @@ function mostrar(){
 }
 
 function cargarHistorial() {
+ 	var idUsuario = localStorage.getItem('idUsuario');
+ 	//alert(idUsuario);
 	historialAjax = new XMLHttpRequest();
-	historialAjax.open('POST', "php/selectHistorial.php");
+	historialAjax.open('GET', "php/selectHistorial.php?id="+idUsuario);
 	historialAjax.send();
 	historialAjax.onreadystatechange = function(){
 		if (historialAjax.readyState == 4 && historialAjax.status == 200) {
@@ -93,8 +95,9 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								//window.location.href='index.html';
-								alert("Insertado al historial");
+								
+								//alert("Insertado al historial");
+								window.location.href='inicio.html';
 							}
 							else{
 
@@ -116,16 +119,16 @@ function insertarHistorial(){
 			nuevoRegistroAjax = new XMLHttpRequest();
 			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 			nuevoRegistroAjax.send();
-
+			alert("Pagado exitosamnte!");
 			nuevoRegistroAjax.onreadystatechange = function(){
-				console.log("pagado");
+			
 
 				if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								//window.location.href='index.html';
-								alert("Insertado al historial");
+								window.location.href='inicio.html';
+								//alert("Insertado al historial");
 							}
 							else{
 
@@ -147,16 +150,16 @@ function insertarHistorial(){
 			nuevoRegistroAjax = new XMLHttpRequest();
 			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 			nuevoRegistroAjax.send();
-
+			alert("Pagado exitosamnte!");
 			nuevoRegistroAjax.onreadystatechange = function(){
-				console.log("pagado");
+			
 
 				if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								//window.location.href='index.html';
-								alert("Insertado al historial");
+								window.location.href='inicio.html';
+								
 							}
 							else{
 
@@ -177,16 +180,17 @@ function insertarHistorial(){
 				nuevoRegistroAjax = new XMLHttpRequest();
 				nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 				nuevoRegistroAjax.send();
+				alert("Pagado exitosamnte!");
 
 				nuevoRegistroAjax.onreadystatechange = function(){
-					console.log("pagado");
+					
 
 					if (nuevoRegistroAjax.readyState == 4 && nuevoRegistroAjax.status == 200) {
 								
 								if (nuevoRegistroAjax.responseText=="1") {
 									//lo que hace cuando sale bien el registro
-									//window.location.href='index.html';
-									alert("Insertado al historial");
+									window.location.href='inicio.html';
+									
 								}
 								else{
 
