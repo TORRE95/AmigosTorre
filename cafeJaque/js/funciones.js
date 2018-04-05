@@ -41,6 +41,7 @@ function inicioSesion() {
 		inicioAjax = new XMLHttpRequest();
 		inicioAjax.open('GET', 'php/selectUsuarios.php?mail='+mail+'&pass='+pass);
 		inicioAjax.send();
+		alert("Iniciando Sesion");
 		
 		inicioAjax.onreadystatechange = function(){
 			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
@@ -66,7 +67,7 @@ function inicioSesion() {
 function orden() {
 	var id = localStorage.getItem('idUsuario');
 	var url = "php/orden.php?usuario="+id;
-	if (id !="") {
+	if (id != "") {
 		ordenAjax = new XMLHttpRequest();
 		ordenAjax.open("GET", url);
 		ordenAjax.send();
