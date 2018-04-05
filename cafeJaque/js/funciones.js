@@ -43,21 +43,77 @@ function inicioSesion() {
 		inicioAjax.send();
 		
 		inicioAjax.onreadystatechange = function(){
-		if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
-			inicio = JSON.parse(inicioAjax.responseText);
+			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
+				inicio = JSON.parse(inicioAjax.responseText);
 
-					localStorage.setItem('idUsuario', inicio[0].idUsuario);
-					localStorage.setItem('tipoUsuario', inicio[0].tipoUsuario);
+						localStorage.setItem('idUsuario', inicio[0].idUsuario);
+						localStorage.setItem('tipoUsuario', inicio[0].tipoUsuario);
 
-			if (inicio[0].tipoUsuario=="0") {
-						window.location.assign('inicio.html');
-					}
-
-				if (inicio[0].tipoUsuario == "1") {
-							window.location.assign('dashboard.html');
+				if (inicio[0].tipoUsuario=="0") {
+							window.location.assign('inicio.html');
 						}
-			
-		}
+
+					if (inicio[0].tipoUsuario == "1") {
+								window.location.assign('dashboard.html');
+							}
+				
+			}
 		}
 	}
 } 
+
+
+function orden() {
+	var id = localStorage.getItem('idUsuario');
+	var url = "php/orden.php?usuario="+id;
+	if (id !="") {
+		ordenAjax = new XMLHttpRequest();
+		ordenAjax.open("GET", url);
+		ordenAjax.send();
+		ordenAjax.onreadystatechange = function(){
+			if (ordenAjax.readyState == 4 && ordenAjax.status == 200) {
+				orden = JSON.parse(ordenAjax.responseText);
+				for (var i = 0; i < orden.length; i++) {
+					var info = 
+						"<div class='modulos'>"+
+							"<div class='orden'>"+
+								"<div class='numero'><label>#58"+orden[i].idOrden+"</label></div>"+
+								"<div class='hora'><label>"+orden[i].hora+"</label></div>"+
+							"</div>"+
+							"<div class='articulos'>"+
+								"<ul>"+
+									"<li>"+orden[i].descripcion+"</li>"+
+								"</ul>"+
+							"</div>"+
+							"<div class='total'><label>$"+orden[i].monto+"</label></div>"+
+						"</div>";
+						document.querySelector('article').innerHTML += info;
+				}	
+			}
+		}
+	}
+}
+
+function agregarProducto() {
+	var id = localStorage.getItem('idUsuario');
+	var nombre = document.getElementById('nombreP').value;
+	var precio = document.getElementById('precio').value;
+	var descripcion = document.getElementById('descripcion').value;
+	var url = "php/agregarProducto.php?nombre="+nombre+"&precio="+precio+"&descripcion="+descripcion+"&id="+id;
+	if(nombre != "" && precio != "" && descripcion != ""){
+		productoAjax = new XMLHttpRequest();
+		productoAjax.open("GET", url);
+		productoAjax.send();
+		alert("Producto agregado con éxito")
+		productoAjax.onreadystatechange = function(){
+			if (productoAjax.readyState == 4 && productoAjax.status == 200) {	
+				if (productoAjax.responseText=="1") {
+					window.location='dashboard.html';
+				}else{
+					window.location='productos.html'
+				}
+			}
+		}
+	}
+	
+}

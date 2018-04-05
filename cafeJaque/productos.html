@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/estiloDashboard.css">
     <link rel="stylesheet" type="text/css" href="CSS/estiloProducto.css">
     <link rel="stylesheet" type="text/css" href="CSS/FontAwesome/fontawesome-all.css">
+    <script type="text/javascript" src="js/funciones.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
@@ -35,13 +36,13 @@
         </div>
         <div class="contenido">
             <div class="container">
-                <form action="">
+                <form>
                     <div class="row">
                         <div class="col-25">
                             <label for="fname">Nombre del Producto</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="fname" name="firstname" placeholder="Nombre">
+                            <input type="text" id="nombreP" name="nombreP" placeholder="Nombre" required>
                         </div>
                     </div>
                     <div class="row">
@@ -49,7 +50,7 @@
                             <label for="lname">Precio del Producto</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Precio">
+                            <input type="number" id="precio" name="precio" placeholder="Precio" required>
                         </div>
                     </div>
                     <div class="row">
@@ -57,11 +58,11 @@
                             <label for="subject">Descripción</label>
                         </div>
                         <div class="col-75">
-                            <textarea id="subject" name="subject" placeholder="Escribe una breve descipción" style="height:100px; resize: none;" maxlength="50"></textarea>
+                            <textarea id="descripcion" name="descipcion" placeholder="Escribe una breve descipción" style="height:100px; resize: none;" maxlength="50" required></textarea>
                         </div>
                     </div>
                     <div class="row">
-                        <input type="submit" value="Agregar Producto">
+                        <input type="submit" value="Agregar Producto" onclick="agregarProducto();">
                     </div>
                 </form>
             </div>
