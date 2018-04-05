@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-04-2018 a las 04:20:44
+-- Tiempo de generación: 05-04-2018 a las 22:41:28
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -43,6 +43,29 @@ INSERT INTO `historial` (`idHistorial`, `idUsuario`, `Monto`, `nombreArchivo`) V
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `orden`
+--
+
+CREATE TABLE `orden` (
+  `idOrden` int(3) NOT NULL,
+  `idUsuario` int(3) NOT NULL,
+  `nombreServer` varchar(50) NOT NULL,
+  `montoTotal` decimal(6,2) NOT NULL,
+  `numImpresiones` int(4) NOT NULL,
+  `Hora` varchar(15) NOT NULL DEFAULT '10:50',
+  `Completado` int(2) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `orden`
+--
+
+INSERT INTO `orden` (`idOrden`, `idUsuario`, `nombreServer`, `montoTotal`, `numImpresiones`, `Hora`, `Completado`) VALUES
+(5, 20, 'Jorge', '30.00', 60, '15:38', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -77,6 +100,12 @@ ALTER TABLE `historial`
   ADD PRIMARY KEY (`idHistorial`);
 
 --
+-- Indices de la tabla `orden`
+--
+ALTER TABLE `orden`
+  ADD PRIMARY KEY (`idOrden`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -92,6 +121,11 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `historial`
   MODIFY `idHistorial` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `orden`
+--
+ALTER TABLE `orden`
+  MODIFY `idOrden` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
