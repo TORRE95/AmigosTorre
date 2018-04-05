@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="estilos/estiloDashboard.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<body>
+<body onload="llenarOrden();">
 	<div class="header">
 		<div class="titulo2">
 			<h2>Resumen</h2>
@@ -15,14 +15,8 @@
 	</div>
 	<div class="contenedor">
 		
-			<div class="estadisticas2">
-				<span>Resumen de pedido:<br>
-				5 impresiones.<br>
-				Costo por impresión: $5.00<br>
-				Total: $<p id="monto">$25.00</p></span>
-			</div>
-
-			
+			<section class="estadisticas2">
+			</section>
 			<div class="modulos" id="arriba" onclick="window.location.assign('confirmacion.html');">
 				<span>Pago con Efectivo</span>
 			</div>
@@ -32,6 +26,5 @@
 			
 		
 	</div>
-
 </body>
 </html>

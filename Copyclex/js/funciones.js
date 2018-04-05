@@ -114,23 +114,39 @@ function cargarHistorial() {
 	}
 }
 
+function llenarOrden() {
+	var random100 = Math.floor((Math.random() * 200) + 1);
+	var costoTotal = random100 * 0.50;
+	var llenado =
+		"<span>Resumen de pedido:<br>"+
+		"<span>"+random100+"</span> <span>impresiones</span><br>"+
+		"<span>Costo por impresión: $</span><span>0.50</span><br>"+
+		"<span>Total: $</span><span>"+costoTotal+"</span>";
+	document.querySelector('section').innerHTML = llenado;
+
+	sessionStorage.setItem("numImpresiones", random100);
+	sessionStorage.setItem("costoTotal", costoTotal);
+
+}
+
 function orden() {
+	var numImpresiones = sessionStorage.getItem("numImpresiones");
+	var costoTotal = sessionStorage.getItem("costoTotal");
+	var idUsuario = localStorage.getItem("idUsuario");
+	var nombreServer = localStorage.getItem("Nombre");
+	var url = "php/insertarOrden.php?idUsuario="+idUsuario+"&nombreServer="+nombreServer+"&montoTotal="+costoTotal+"&numImpresiones="+
+				numImpresiones;
 	ordenAjax = new XMLHttpRequest();
-	ordenAjax.open('POST', "php/selectHistorial.php");
+	ordenAjax.open('GET', url);
 	ordenAjax.send();
 	ordenAjax.onreadystatechange = function(){
 		if (ordenAjax.readyState == 4 && ordenAjax.status == 200) {
-			orden = JSON.parse(ordenAjax.responseText);
-			for (var i = 0; i < orden.length; i++) {
-				var info = 
-						"<div class='estadisticas'>"+
-							"<span>"+orden[i].nombreArchivo+"</span><br>"+
-							"<span>"+orden[i].monto+"</span>"+
-						"</div>";
-				document.querySelector('section').innerHTML += info;
+			if (ordenAjax.responseText=="1") {
+				alert("Orden enviada");
 			}
-			
-			
+			else{
+				alert("Error inesperado, intente más tarde");
+			}		
 		}
 	}
 }
