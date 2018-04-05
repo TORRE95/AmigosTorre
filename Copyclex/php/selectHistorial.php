@@ -4,17 +4,22 @@
 	$funciones = new Funciones();
 	$conexion = $funciones->conectar();
 	$conexion->set_charset("utf8");
-	//$nombre = $_POST['nombre'];
+	$id = $_GET['id'];
 	//  SELECT * FROM historial WHERE idUsuario IN (SELECT Nombre FROM usuarios WHERE idUsuario != 0);
-	$query = "SELECT * FROM historial;";
+	$query1 = "SELECT Nombre FROM usuarios WHERE idUsuario = '$id';";
+	$resultado1 = $conexion->query($query1);
+	$row = mysqli_fetch_row($resultado1);
+	$nombre = $row[0];
+
+	$query = "SELECT * FROM orden WHERE nombreServer = '$nombre' AND Completado = 1;";
 	$resultado = $conexion->query($query);
 	$arreglo = array();
 	while ($r = $resultado->fetch_object()) {
 		array_push($arreglo, array(
+			"idOrden"=>$r->idOrden,
 			"idUsuario"=>$r->idUsuario,
-			"idHistorial"=>$r->idHistorial,
-			"monto"=>$r->Monto,
-			"nombreArchivo" => $r->nombreArchivo
+			"Monto"=>$r->montoTotal,
+			"Impresiones"=>$r->numImpresiones
 
 		));
 	}

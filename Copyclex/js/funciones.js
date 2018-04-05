@@ -26,6 +26,7 @@ function inicioSesion() {
 					}
 
 				if (inicio[0].tipoUsuario=="1") {
+					localStorage.setItem('idUsuario',  inicio[0].idUsuario);
 							window.location.assign('dashboardS.html');
 						}
 				
@@ -94,8 +95,9 @@ function registrarServidor() {
 }
 
 function cargarHistorial() {
+	var id = localStorage.getItem('idUsuario');
 	historialAjax = new XMLHttpRequest();
-	historialAjax.open('POST', "php/selectHistorial.php");
+	historialAjax.open('GET', "php/selectHistorial.php?id="+id);
 	historialAjax.send();
 	historialAjax.onreadystatechange = function(){
 		if (historialAjax.readyState == 4 && historialAjax.status == 200) {
@@ -103,8 +105,9 @@ function cargarHistorial() {
 			for (var i = 0; i < historial.length; i++) {
 				var info = 
 						"<div class='estadisticas'>"+
-							"<span>"+historial[i].nombreArchivo+"</span><br>"+
-							"<span>"+historial[i].monto+"</span>"+
+							"<span> ID Orden: "+historial[i].idOrden+"</span><br>"+
+							"<span> Total de Impresiones: "+historial[i].Impresiones+"</span><br>"+
+							"<span> Monto total: "+historial[i].Monto+"</span>"+
 						"</div>";
 				document.querySelector('section').innerHTML += info;
 			}
@@ -180,3 +183,64 @@ function seleccionar(num) {
 	window.location.assign('formaPago.html');
 		
 }
+
+
+function cargarOrdenes(){
+
+	var idServidor = localStorage.getItem('idUsuario');
+
+	ordenesAjax = new XMLHttpRequest();
+	ordenesAjax.open('GET', "php/selectOrdenes.php?id="+idServidor);
+	ordenesAjax.send();
+	ordenesAjax.onreadystatechange = function(){
+		if (ordenesAjax.readyState == 4 && ordenesAjax.status == 200) {
+			orden = JSON.parse(ordenesAjax.responseText);
+			for (var i = 0; i < orden.length; i++) {
+				var info = 
+						"<div class='estadisticas'>"+
+							"<button class='boton' onclick='completar("+orden[i].idOrden+")'> Completar Orden </button>"+
+							"<span> Impresiones totales: "+"  "+orden[i].Impresiones+"</span><br>"+
+							"<span> Total: $"+orden[i].Monto+"</span>"+
+
+						"</div>";
+				document.querySelector('section').innerHTML += info;
+			}
+			
+			
+		}
+	}
+
+
+}
+
+function completar(num) {
+
+		localStorage.setItem('idOrden', num);
+	
+
+	completarAjax = new XMLHttpRequest();
+	completarAjax.open('GET', "php/completarOrden.php?id="+num);
+	completarAjax.send();
+
+			completarAjax.onreadystatechange = function(){
+		if (completarAjax.readyState == 4 && completarAjax.status == 200) {
+
+			if (completarAjax.responseText=="1") {
+	
+						//lo que hace cuando sale bien el registro
+						alert("Orden Completada!");
+						location.reload();
+					}
+					else{
+
+						alert("Error inesperado, intente más tarde");
+					}
+			
+			}
+			
+			
+		}
+	}
+
+		
+
