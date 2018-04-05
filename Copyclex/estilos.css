@@ -5,11 +5,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: white;
 
-}
 img{
 	margin-top: 6px;
 	width: 120px;
@@ -83,3 +79,5 @@ button{
 	border-color: #2196F3;
 	color: white
 }
+
+.info{text-align: center !important;}

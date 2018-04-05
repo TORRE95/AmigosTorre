@@ -6,19 +6,29 @@ function inicioSesion() {
 		inicioAjax = new XMLHttpRequest();
 		inicioAjax.open('GET', 'php/selectUsuarios.php?mail='+mail+'&pass='+pass);
 		inicioAjax.send();
+
+		alert("iniciando Sesion");
+		
 		inicioAjax.onreadystatechange = function(){
+			
+
 			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
-				//inicio = JSON.parse(inicioAjax.responseText);
-				if (inicioAjax.responseText=="0") {
+
+				inicio = JSON.parse(inicioAjax.responseText);
+
+					
+					
+					
+				if (inicio[0].tipoUsuario =="0") {
+					localStorage.setItem('idUsuario',  inicio[0].idUsuario);
 						window.location.assign('dashboard.html');
+						//localStorage.setItem('idUsuario',  inicio[0].idUsuario);
 					}
 
-				if (inicioAjax.responseText == "1") {
+				if (inicio[0].tipoUsuario=="1") {
 							window.location.assign('dashboardS.html');
 						}
-				if (inicioAjax.responseText == "Error") {
-							alert("Datos incorrectos.");
-						}
+				
 				
 				
 			}
@@ -123,4 +133,34 @@ function orden() {
 			
 		}
 	}
+}
+
+function cargarLugares() {
+	lugaresAjax = new XMLHttpRequest();
+	lugaresAjax.open('POST', "php/selectLugares.php");
+	lugaresAjax.send();
+	lugaresAjax.onreadystatechange = function(){
+		if (lugaresAjax.readyState == 4 && lugaresAjax.status == 200) {
+			lugar = JSON.parse(lugaresAjax.responseText);
+			for (var i = 0; i < lugar.length; i++) {
+				var info = 
+						"<div class='modulos' onclick='seleccionar("+[i]+")'>"+
+							"<span><p id='nombre"+[i]+"'"+">"+lugar[i].Nombre+"</p> <br>"+lugar[i].Ubicacion+"<br> </span>"
+						"</div>";
+				document.querySelector('section').innerHTML += info;
+			}
+			
+			
+		}
+	}
+}
+
+
+function seleccionar(num) {
+
+	var nombre = document.getElementById("nombre"+num).innerHTML
+
+	localStorage.setItem('Nombre', nombre);
+	window.location.assign('formaPago.html');
+		
 }

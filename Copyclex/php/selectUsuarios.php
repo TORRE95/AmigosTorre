@@ -9,17 +9,17 @@
 	$query = "SELECT * FROM usuarios WHERE Correo = '$mail' AND Password = '$pass';";
 	$resultado = $conexion->query($query);
 
-	if (mysqli_num_rows($resultado)>0) {
-		$r = $resultado->fetch_object();
-		echo $r->tipoUser;
-	}else{
-		echo "Error";
-	}
-		
 
-	
-	//IMPRIMIR LA RESPUESTA EN JSON
-	//echo json_encode($arreglo);
-	//echo $query;
+	$arreglo = array();
+	while ($r = $resultado->fetch_object()) {
+		array_push($arreglo, array(
+			"idUsuario"=>$r->idUsuario,
+			"tipoUsuario"=>$r->tipoUser
+			
+		));
+	}
+
+	echo json_encode($arreglo);
+
 
  ?>
