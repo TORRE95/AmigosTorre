@@ -165,3 +165,34 @@ function updatePerfil() {
 		}
 	}
 }
+
+function pedidos() {
+	var id = localStorage.getItem('idUsuario');
+	var url = "php/orden.php?usuario="+id;
+	if (id != "") {
+		ordenAjax = new XMLHttpRequest();
+		ordenAjax.open("GET", url);
+		ordenAjax.send();
+		ordenAjax.onreadystatechange = function(){
+			if (ordenAjax.readyState == 4 && ordenAjax.status == 200) {
+				orden = JSON.parse(ordenAjax.responseText);
+				for (var i = 0; i < orden.length; i++) {
+					var info = 
+						"<div class='modulosP'>"+
+							"<div class='orden'>"+
+								"<div class='numero'><label>#58"+orden[i].idOrden+"</label></div>"+
+								"<div class='hora'><label>"+orden[i].hora+"</label></div>"+
+							"</div>"+
+							"<div class='articulos'>"+
+								"<ul>"+
+									"<li>"+orden[i].descripcion+"</li>"+
+								"</ul>"+
+							"</div>"+
+							"<div class='total'><label>$"+orden[i].monto+"</label></div>"+
+						"</div>";
+						document.querySelector('section').innerHTML += info;
+				}	
+			}
+		}
+	}
+}
