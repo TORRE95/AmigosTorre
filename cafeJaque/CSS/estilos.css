@@ -14,7 +14,9 @@ img{
 	margin-top: 6px;
 	width: 120px;
 	height: 120px;
-	margin-left: 35%;
+	display: block;
+	margin:auto;
+	margin-top: 10px;
 }
 html{
 	height: 100%;

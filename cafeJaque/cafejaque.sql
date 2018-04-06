@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-04-2018 a las 05:41:04
--- Versión del servidor: 10.1.28-MariaDB
--- Versión de PHP: 7.1.11
+-- Tiempo de generación: 06-04-2018 a las 22:44:02
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cafejaque`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `idCarrito` int(3) NOT NULL,
+  `idUsuario` int(3) NOT NULL,
+  `idProducto` int(3) NOT NULL,
+  `NombreProducto` varchar(100) NOT NULL,
+  `Precio` decimal(6,2) NOT NULL,
+  `Cantidad` int(3) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `carrito`
+--
+
+INSERT INTO `carrito` (`idCarrito`, `idUsuario`, `idProducto`, `NombreProducto`, `Precio`, `Cantidad`) VALUES
+(3, 7, 4, 'carne', '455.00', 1),
+(5, 7, 5, 'Caca', '15.00', 1);
 
 -- --------------------------------------------------------
 
@@ -55,7 +76,9 @@ CREATE TABLE `orden` (
 --
 
 INSERT INTO `orden` (`idOrden`, `idUsuario`, `idCafe`, `Monto`, `descripcion`, `Hora`, `Completado`) VALUES
-(1, 2, 2, '50.00', 'Prueba', '10:50 am', 0);
+(1, 7, 2, '50.00', 'Prueba', '10:50 am', 0),
+(3, 7, 2, '470.00', 'carne,Caca,', '10:50 am', 0),
+(4, 7, 2, '470.00', 'carne,Caca,', '10:50 am', 0);
 
 -- --------------------------------------------------------
 
@@ -77,8 +100,8 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`idProducto`, `Nombre`, `Descripcion`, `Precio`, `idUsuario`) VALUES
 (2, 'Jabon', '12kjbn,', '123.00', 0),
-(3, 'Jabon', 'Jabon', '558.00', 0),
-(4, 'carne', 'asada', '455.00', 0),
+(3, 'Jabon', 'Jabon', '558.00', 1),
+(4, 'carne', 'asada', '455.00', 2),
 (5, 'Caca', 'Pedacito de popo', '15.00', 2);
 
 -- --------------------------------------------------------
@@ -116,6 +139,18 @@ INSERT INTO `usuarios` (`idUsuario`, `tipoUsuario`, `Nombre`, `Apellidos`, `Corr
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`idCarrito`);
+
+--
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`idHistorial`);
+
+--
 -- Indices de la tabla `orden`
 --
 ALTER TABLE `orden`
@@ -139,18 +174,30 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `idCarrito` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `idHistorial` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `orden`
+--
+ALTER TABLE `orden`
+  MODIFY `idOrden` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `idProducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
