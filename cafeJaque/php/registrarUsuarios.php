@@ -1,5 +1,5 @@
 <?php 
-
+	header('Access-Control-Allow-Origin: *');
 	require 'conexion.php';
 	$funciones = new Funciones();
 	$conexion = $funciones->conectar();

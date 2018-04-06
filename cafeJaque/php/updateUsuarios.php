@@ -1,5 +1,5 @@
 <?php 
-
+	header('Access-Control-Allow-Origin: *');
 	$nombreUser = $_GET['nombreUser'];
 	$tel = $_GET['tel'];
 	$id = $_GET['id'];

@@ -1,4 +1,5 @@
-<?php 
+<?php
+	header('Access-Control-Allow-Origin: *');
 	require "conexion.php";
 
 	/*select: SIRVE PARA HACER UNA CONSULTA EN LA BD

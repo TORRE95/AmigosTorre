@@ -1,5 +1,5 @@
 <?php 
-
+	header('Access-Control-Allow-Origin: *');
 	$id = $_GET['idUser'];
 	require_once 'conexion.php';
 	$funciones = new Funciones();

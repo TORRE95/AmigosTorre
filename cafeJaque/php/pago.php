@@ -1,4 +1,5 @@
 <?php 
+	header('Access-Control-Allow-Origin: *');
 	require 'libreria.php';
 	session_start();
 	$funciones = new Funciones();

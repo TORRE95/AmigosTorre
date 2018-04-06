@@ -1,5 +1,5 @@
 <?php 
-
+	header('Access-Control-Allow-Origin: *');
 	$mail = $_GET['mail'];
 	$pass = $_GET['pass'];
 	require_once 'conexion.php';
