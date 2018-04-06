@@ -118,3 +118,50 @@ function agregarProducto() {
 	}
 	
 }
+
+function getCorreo() {
+	var id = localStorage.getItem("idUsuario");
+	var url = "php/getDatosUser.php?idUser="+id;
+	datosUserAjax = new XMLHttpRequest();
+	datosUserAjax.open("GET", url);
+	datosUserAjax.send();
+	datosUserAjax.onreadystatechange = function(){
+		if (datosUserAjax.readyState == 4 && datosUserAjax.status == 200) {	
+			datos = JSON.parse(datosUserAjax.responseText);
+			for (var i = 0; i < datos.length; i++) {
+				if(datos[i].nombreUsuario == 0){
+					document.getElementById("nombre").value = "";
+				}else{
+					document.getElementById("nombre").value = datos[i].nombreUsuario;
+				}
+				if (datos[i].telefono == 0) {
+					document.getElementById("tel").value = "";
+				}else{
+					document.getElementById("tel").value = datos[i].telefono;
+				}
+				document.getElementById("mail").value = datos[i].correo;
+			}
+		}
+	}
+}
+
+function updatePerfil() {
+	var id = localStorage.getItem("idUsuario");
+	var nombreUser = document.getElementById("nombre").value;
+	var tel = document.getElementById("tel").value;
+	var url = "php/updateUsuarios.php?nombreUser="+nombreUser+"&tel="+tel+"&id="+id;
+	if(nombreUser != "" && tel != ""){
+		updateAjax = new XMLHttpRequest();
+		updateAjax.open("GET", url);
+		updateAjax.send();
+		updateAjax.onreadystatechange = function(){
+			if (updateAjax.readyState == 4 && updateAjax.status == 200) {	
+				if (updateAjax.responseText=="1") {
+					alert("Datos actualizados");
+				}else{
+					alert("Error inesperado, intente más tarde");
+				}
+			}
+		}
+	}
+}

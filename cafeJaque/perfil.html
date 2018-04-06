@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <title>Perfil</title>
     <link rel="stylesheet" href="CSS/estiloPerfil.css">
-
+    <script type="text/javascript" src="js/funciones.js"></script>
     <link rel="stylesheet" href="CSS/FontAwesome/fontawesome-all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
-<body>
+<body onload="getCorreo();">
     <div class="contenedor">
         <div class="header">
             <div class="titulo">
                 <h2>Perfil</h1>
-			</div>
-			<div class="navbar">
-				<ul>
-					<a href="inicio.html"><li><i class="fas fa-utensils fa-2x"></i></li></a>
-					<a href="pedidos.html"><li><i class="far fa-list-alt fa-2x"></i></li></a>
-					<a href="#"><li><i class="far fa-user fa-2x"></i></li></a>
-				</ul>
-			</div>
-		</div>
-		<div class="contenido" style="padding: 10px;">
-			
-			<form>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <a href="inicio.html"><li><i class="fas fa-utensils fa-2x"></i></li></a>
+                    <a href="pedidos.html"><li><i class="far fa-list-alt fa-2x"></i></li></a>
+                    <a href="#"><li><i class="far fa-user fa-2x"></i></li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="contenido" style="padding: 10px;">
+            
+            <form method="GET" action="#">
                     <div class="row">
                         <div class="col-25">
                             <label for="fname">Nombre Usuario</label>
@@ -39,7 +39,7 @@
                             <label for="lname">Correo Electrónico</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" id="mail" name="mail" placeholder="Email" required disabled>
+                            <input type="text" id="mail" name="mail" placeholder="Email" required disabled>
                         </div>
                     </div>
                     <div class="row">
@@ -51,10 +51,10 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 30px;">
-                        <input type="submit" value="Actualizar Datos" onclick="">
+                        <input type="submit" value="Actualizar Datos" onclick="updatePerfil();">
                     </div>
                 </form>
-		</div>
-	</div>
+        </div>
+    </div>
 </body>
 </html>
