@@ -66,7 +66,7 @@ function inicioSesion() {
 
 function orden() {
 	var id = localStorage.getItem('idUsuario');
-	var url = "php/orden.php?usuario="+id;
+	var url = "php/ordenCafe.php?usuario="+id;
 	if (id != "") {
 		ordenAjax = new XMLHttpRequest();
 		ordenAjax.open("GET", url);
