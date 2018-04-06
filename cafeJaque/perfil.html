@@ -10,6 +10,11 @@
 </head>
 
 <body onload="getCorreo();">
+    <script>
+        window.location.hash = "no-back-button";
+        window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+        window.onhashchange = function() { window.location.hash = "no-back-button"; }
+    </script>
     <div class="contenedor">
         <div class="header">
             <div class="titulo">
@@ -52,6 +57,9 @@
                     </div>
                     <div class="row" style="margin-top: 30px;">
                         <input type="submit" value="Actualizar Datos" onclick="updatePerfil();">
+                    </div>
+                    <div class="row" style="margin-top: 30px;">
+                        <button type=button onclick="location.href = 'index.html'">Cerrar Sesión</button>
                     </div>
                 </form>
         </div>

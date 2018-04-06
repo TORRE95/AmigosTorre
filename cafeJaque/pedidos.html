@@ -10,6 +10,11 @@
 </head>
 
 <body onload="pedidos()">
+    <script>
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+    window.onhashchange = function() { window.location.hash = "no-back-button"; }
+    </script>
     <div class="contenido">
         <div class="header">
             <div class="titulo">
@@ -30,15 +35,13 @@
             </div>
         </div>
         <section>
-            
         </section>
     </div>
 </body>
 <script>
-    function goBack() {
-        window.history.back();
-    }
-
+function goBack() {
+    window.history.back();
+}
 </script>
 
 </html>

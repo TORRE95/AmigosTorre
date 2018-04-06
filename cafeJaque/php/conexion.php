@@ -5,7 +5,7 @@ class Funciones {
 		$host = "localhost";
 		$user = "root";
 		$pass = "";
-		$db = "cafeJaque";
+		$db = "snackapp";
 
 		$conexion = new mysqli($host, $user, $pass, $db);
 
