@@ -12,7 +12,7 @@ function inicioSesion() {
                 for (var i = 0; i < inicio.length; i++) {
 
                     if (mail == inicio[i].correo && pass == inicio[i].pass) {
-                        sessionStorage.setItem("nombre", inicio[i].nombre);
+                        localStorage.setItem("nombre", inicio[i].nombre);
                         location.href = "app.html";
                         break;
                     } else {
@@ -61,34 +61,38 @@ function add2() {
     }
 }
 
-
 function registrar() {
     var nombre = document.getElementById("nombre").value;
-    var apellidos = document.getElementById("apellidos").value;
+    var ape = document.getElementById("apellidos").value;
     var mail = document.getElementById("mailR").value;
     var pass1 = document.getElementById("pass1").value;
     var pass2 = document.getElementById("pass2").value;
-    if (nombre != "" && mail != "" && pass1 != "" && pass2 != "" && apellidos != "") {
+    var url = "php/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1+"&apellidos="+ape;
+    if (nombre != "" && mail != "" && pass1 != "" && pass2 != "" && ape != "") {
         if (pass1 == pass2) {
             registroAjax = new XMLHttpRequest();
-            registroAjax.open('GET', "php/registrarUsuarios.php?nombre=" + nombre + "&mail=" + mail + "&pass1=" + pass1 + "&apellidos" + apellidos);
+            registroAjax.open('GET', url);
             registroAjax.send();
             registroAjax.onreadystatechange = function() {
                 if (registroAjax.readyState == 4 && registroAjax.status == 200) {
 
                     if (registroAjax.responseText == "1") {
-                        console.log(registroAjax.responseText);
-                        sessionStorage.setItem("nombre", nombre);
-                        location.href = "app.html";
+                        alert("iniciando sesión");
+                       localStorage.setItem("nombre", nombre);
+                       window.location = "app.html";
+                    }else{
+                        console.log("Error inesperado, intente más tarde");
                     }
                 }
             }
+        }else{
+            alert("Error, las contraseñas no coinciden")
         }
     }
 }
 
 function getNombre() {
-    var div = "Bienvenido " + sessionStorage.getItem('nombre');
+    var div = "Bienvenido " + localStorage.getItem('nombre');
     document.querySelector('h1').innerHTML = div;
 
 }
