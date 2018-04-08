@@ -97,8 +97,7 @@ a:link, a:visited, a:hover, a:active {
 .precio{ 
     text-align: right; 
 } 
-.pago{ 
-    position: absolute; 
+.pago{  
     bottom: 0px; 
     width: 100%; 
     height: 50px; 

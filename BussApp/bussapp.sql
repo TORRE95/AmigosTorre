@@ -58,7 +58,7 @@ CREATE TABLE `usuarios` (
   `idUsuario` int(3) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Apellidos` varchar(50) NOT NULL,
-  `Numero` int(20) NOT NULL,
+  `Numero` varchar(20) NOT NULL,
   `Correo` varchar(100) NOT NULL,
   `Password` varchar(500) NOT NULL,
   `FechaRegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
