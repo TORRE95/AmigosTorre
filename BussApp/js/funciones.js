@@ -47,25 +47,49 @@ function cargarHistorial() {
 
 
 function rutaA() {
-
 	localStorage.setItem('ruta', 1);
+	var a = new Date();
+	var hora = a.getHours()+':'+a.getMinutes();
+		
+	var usuario = localStorage.getItem('idUsuario');
+	localStorage.setItem('qrruta', '[Ruta A, Precio: 12.00, '+hora+', Usuario:'+' '+ usuario+ ']' );
+	localStorage.setItem('Fecha', a.toLocaleDateString());
 	window.location.href='pago.html';
+
 }
 
 function rutaB() {
 
 	localStorage.setItem('ruta', 2);
+	var a = new Date();
+	var hora = a.getHours()+':'+a.getMinutes();
+		
+	var usuario = localStorage.getItem('idUsuario');
+	localStorage.setItem('qrruta', '[Ruta B, Precio: 8.00, '+hora+', Usuario:'+' '+ usuario+ ']' );
+	localStorage.setItem('Fecha', a.toLocaleDateString());
 	window.location.href='pago.html';
 }
 
 function rutaC() {
 
 	localStorage.setItem('ruta', 3);
+	var a = new Date();
+	var hora = a.getHours()+':'+a.getMinutes();
+		
+	var usuario = localStorage.getItem('idUsuario');
+	localStorage.setItem('qrruta', '[Ruta C, Precio: 9.50, '+hora+', Usuario:'+' '+ usuario+ ']' );
+	localStorage.setItem('Fecha', a.toLocaleDateString());
 	window.location.href='pago.html';
 }
 function rutaD() {
 
 	localStorage.setItem('ruta', 4);
+	var a = new Date();
+	var hora = a.getHours()+':'+a.getMinutes();
+		
+	var usuario = localStorage.getItem('idUsuario');
+	localStorage.setItem('qrruta', '[Ruta D, Precio: 15.00, '+hora+', Usuario:'+' '+ usuario+ ']' );
+	localStorage.setItem('Fecha', a.toLocaleDateString());
 	window.location.href='pago.html';
 }
 
@@ -82,6 +106,9 @@ function insertarHistorial(){
 
 			var ruta = "Ruta A";
 			var monto = 12.00;
+			localStorage.setItem('qrruta', monto);
+			var a = new Date();
+			localStorage.setItem('Fecha', a);
 			var idUsuario = localStorage.getItem('idUsuario');
 
 			//alert(idUsuario);
