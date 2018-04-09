@@ -106,9 +106,9 @@ function insertarHistorial(){
 
 			var ruta = "Ruta A";
 			var monto = 12.00;
-			localStorage.setItem('qrruta', monto);
-			var a = new Date();
-			localStorage.setItem('Fecha', a);
+			//localStorage.setItem('qrruta', monto);
+			//var a = new Date();
+			//localStorage.setItem('Fecha', a);
 			var idUsuario = localStorage.getItem('idUsuario');
 
 			//alert(idUsuario);
@@ -125,7 +125,7 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								localStorage.setItem('qrruta', '[Ruta A, Precio: 8.50, 11:25]');
+								//localStorage.setItem('qrruta', '[Ruta A, Precio: 8.50, 11:25]');
 								//alert("Insertado al historial");
 								window.location.href='qr.html';
 							}
@@ -157,7 +157,7 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								localStorage.setItem('qrruta', '[Ruta B, Precio: 8.50, 11:25]');
+								//ocalStorage.setItem('qrruta', '[Ruta B, Precio: 8.50, 11:25]');
 								window.location.href='qr.html';
 								//alert("Insertado al historial");
 							}
@@ -189,7 +189,7 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								localStorage.setItem('qrruta', '[Ruta C, Precio: 8.50, 11:25]');
+								//localStorage.setItem('qrruta', '[Ruta C, Precio: 8.50, 11:25]');
 								window.location.href='qr.html';
 								alert("Pagado exitosamnte!");
 							}
@@ -221,7 +221,7 @@ function insertarHistorial(){
 								
 								if (nuevoRegistroAjax.responseText=="1") {
 									//lo que hace cuando sale bien el registro
-									localStorage.setItem('qrruta', '[Ruta D, Precio: 8.50, 11:25]');
+									//localStorage.setItem('qrruta', '[Ruta D, Precio: 8.50, 11:25]');
 									window.location.href='qr.html';
 									alert("Pagado exitosamnte!");
 								}
