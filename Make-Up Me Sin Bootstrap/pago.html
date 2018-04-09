@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
@@ -10,12 +10,14 @@
     <link rel="stylesheet" type="text/css" href="css/FontAwesome/fontawesome-all.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts/Amatic/amatic_font.css">
 	<title>Make-Up Me</title>
+
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src *; font-src *; connect-src *">
 </head>
-<body>
+<body style="height: 100%;">
 	<nav style="z-index: 99999999999999999;">
         <div class="topnav" id="myTopnav" >
 
-            <i class="fas fa-arrow-left fa-2x" onclick="window.history.back();" style="color: darkblue; margin: 12px;"></i>
+            <i class="fas fa-arrow-left fa-2x" onclick="window.history.back();" style="color: white; margin: 12px;"></i>
 
         </div>
     </nav>
@@ -24,7 +26,7 @@
 	<div class="btnPago">
 		<center>
 		  <button type="button" onclick="tarjetas();" class="btnFisico">Tarjeta de crédito/débito</button>
-		  <button type="button" onclick="efectivo();" class="btnFisico" style="padding-bottom: 8%;">Efectivo</button>
+		  <button type="button" onclick="efectivo();" class="btnFisico" style="padding-bottom: 8%; font-size: 18;">Efectivo</button>
 		</center>
 	</div>
 	<section class="margen">

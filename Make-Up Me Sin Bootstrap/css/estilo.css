@@ -4,25 +4,48 @@
     font-family: 'Amatic', cursive;
     font-size: 18px;
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #7C2341;
+    opacity: 0.8; /* Firefox */
+}
 
-body {
-    background: #fcecfc;
-    background: linear-gradient(to right, rgba(251, 166, 225, 0.55) 0%, rgba(255, 124, 216, 0.16) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fba6e1', endColorstr='#ff7cd8', GradientType=1);
+body{
+    background: linear-gradient(to bottom, #8B2849, #6E203A, #2C0B16);    
+}
+html, body{
+    height: auto;
+}
+.login {
+    position: relative;
+    width: calc(60% - 20px);
+    left: calc(20% - 20px);
+    background-color: rgba(255,255,255,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+.contenedor{
+    background-color: rgba(0,0,0,0.3);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-image: url("../images/fondo.png");
+    background-size: 118% ;
+    background-position: -33px 0px;
 }
 .bienvenido{
     margin: 10% 10% 10% 10%;
 }
 h1{
     font-family: 'Amatic', cursive !important;
-    color: darkblue;
+    color: #DCBCAD;
 }
 h2{
-    
+    font-family: 'Amatic', cursive !important;
+    color: #DCBCAD;
 }
 h3{
     font-family: 'Amatic', cursive !important;
-    color: darkblue;
+    color: #DCBCAD;
     letter-spacing: 2pt;
     font-size: 20%;
 }
@@ -46,9 +69,9 @@ h6{
     color: darkblue;
 }
 .btnVerPerfil{
-    background: #f763cd;
+    background: #DCBCAD;
     border: none;
-    color: azure;
+    color: #8B2849;
     padding: 3% 3%;
     text-align: center;
     text-decoration: none;
@@ -105,9 +128,9 @@ li {
 }
 
 .button {
-    background: #f763cd;
+    background: #DBBBAC;
     border: none;
-    color: azure;
+    color: black;
     padding: 3% 3%;
     text-align: center;
     text-decoration: none;
@@ -120,7 +143,7 @@ li {
 
 #btnInicio {
     width: 50%;
-    background: #f763cd;
+    background: DBBBAC;
     border-color: #f763cd;
 }
 
@@ -135,7 +158,7 @@ li {
 }
 
 #link {
-    color: #f763cd;
+    color: #DBBBAC;
     text-decoration: none;
     font-size: 20px;
 }
@@ -146,7 +169,7 @@ li {
 }
 
 #retacho {
-    background-color: #f763cd;
+    background-color: #DBBBAC;
 }
 
 #img {
@@ -162,10 +185,11 @@ li {
 
 #grande {
     font-size: 25px;
-    color: darkblue;
+    color: #DCBCAD;
 }
 #tips{
     letter-spacing: 1.1pt;
+    color: white;
 }
 
 #id {
@@ -236,6 +260,7 @@ li {
 #inicio {
     font-size: 20px;
     margin-bottom: 15%;
+    width: 100%;
 }
 
 span {
@@ -244,16 +269,15 @@ span {
     width: 6.5%;
     position: absolute;
     margin-right: 1%;
-    left: 24%;
-    background-color: #f763cd;
+    left: 8%;
     border-radius: 5px;
 }
 
 #mail {
     font-size: 25px;
     margin-bottom: 10%;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
     border-bottom: 1.2px solid #ff8fdf;
     outline: none;
 }
@@ -311,10 +335,11 @@ span {
 #pass {
     font-size: 25px;
     margin-bottom: 10%;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
     border-bottom: 1.2px solid #ff8fdf;
     outline: none;
+    color: white;
 }
 
 #txtReg {
@@ -365,6 +390,8 @@ blockquote {
     font-size: 18px;
     line-height: 200%;
     letter-spacing: 2pt;
+    color: white;
+        color: white;
 }
 
 .logoFinal {
@@ -372,13 +399,13 @@ blockquote {
 }
 
 .btnFisico {
-    background: #f763cd;
+    background: #DCBCAD;
     border: none;
-    color: azure;
+    color: black;
     padding: 3% 3%;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 26px;
     margin: 4% 4% 4% 4%;
     cursor: pointer;
     border-radius: 8px;
@@ -396,6 +423,7 @@ blockquote {
 .txtNombreTarjeta {
     font-size: 30px;
     margin-bottom: 3%;
+        color: white;
 }
 
 #nombreTarjeta {
@@ -415,6 +443,7 @@ blockquote {
 .txtNumTarjeta {
     font-size: 30px;
     margin-bottom: 3%;
+    color: white;
 }
 
 #numTarjeta {
@@ -436,6 +465,7 @@ blockquote {
 .txtFV {
     font-size: 30px;
     margin-bottom: 3%;
+        color: white;
 }
 
 .FV {
@@ -451,6 +481,7 @@ blockquote {
 .txtCV {
     font-size: 30px;
     margin-bottom: 3%;
+    color: white;
 }
 
 #cv{
@@ -471,6 +502,7 @@ blockquote {
 .txtEfectivo{
     font-weight: 800;
     letter-spacing: 0.03cm;
+        color: white;
 }
 .numCB{
     font-weight: bold;
@@ -516,8 +548,8 @@ dd{
 }
 
 .dropbtn {
-    background-color: #f763cd;
-    color: white;
+    background-color: #DCBCAD;
+    color: black;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -525,7 +557,7 @@ dd{
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #f763cd;
+    background-color: #DCBCAD;
 }
 
 .dropdown {
@@ -536,8 +568,8 @@ dd{
 .dropdown-content {
     display: none;
     position: absolute;
-    width: 200%;
-    background-color: #f2aaf2;
+    width: 180%;
+    background-color: #DCBCAD;
     overflow: auto;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -566,7 +598,7 @@ dd{
     color: darkblue;
 }
 #btnPagarCita{
-    background: #f763cd;
+    background: #6E203A;
     border: none;
     color: azure;
     padding: 3% 3%;

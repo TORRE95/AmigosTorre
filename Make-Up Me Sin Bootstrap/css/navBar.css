@@ -1,6 +1,6 @@
 .topnav {
     overflow: hidden;
-    background-color: #f2aaf2;
+    background-color: #2C0B16;
     margin-bottom: 10%;
 }
 
@@ -15,12 +15,12 @@
 }
 
 .topnav a:hover {
-    background-color: #f763cd;
+    background-color: #55182D;
     color: black;
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #55182D;
     color: white;
 }
 

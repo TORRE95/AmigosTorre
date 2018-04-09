@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
-	<script type="text/javascript" src="js/funciones.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/fonts/Amatic/amatic_font.css">
-	<link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">	
-	<title>Make-Up Me</title>
-</head>
-<body onload="noBack();">
-	<center class='margenTitulo'><h2 id="titulo">Make-Up Me</h2></center>
-	
-    <div>
-	    <span>@</span>
-	</div>
-    <div>
-	  	<center><input type="mail" placeholder="Correo" id="mail" onkeypress="add();" ></center>
-	</div>
-	<div>
-		<span class="llave">&#128273;</span>
-	</div>
-	<div>
-	  	<center><input type="password" placeholder="Contraseña" id="pass" onkeypress="add();"></center>
-	</div>
-	<center>
-        <input type="button" class="button" value="Iniciar Sesión" onclick="inicioSesion();" onfocus="add2();" id="inicio"><br><br>
-		<a href="registro.html" id="link" style="letter-spacing: 1.1pt;">¿No tienes cuenta? ¡Regístrate ahora!</a>
-	</center>
-	<script type="text/javascript">window.addEventListener('load', inicioSesion, true);</script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-sacle=1.0">
+		<script type="text/javascript" src="js/funciones.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/fonts/Amatic/amatic_font.css">
+		<link href="http://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<title>Make-Up Me</title>
+
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src *; font-src *; connect-src *">
+	</head>
+	<body onload="noBack();" style="">
+		<div class="contenedor">
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<div class="login">
+			<div>
+				<span>@</span>
+			</div>
+			<div>
+				<center><input type="mail" placeholder="Correo" id="mail" onkeypress="add();" ></center>
+			</div>
+			<div>
+				<span class="llave">&#128273;</span>
+			</div>
+			<div>
+				<center><input type="password" placeholder="Contraseña" id="pass" onkeypress="add();" style="color: white;"></center>
+			</div>
+			<center>
+			<input type="button" class="button" value="Iniciar Sesión" onclick="inicioSesion();" onfocus="add2();" id="inicio" style="color: #681C36"><br><br>
+			<a href="registro.html" id="link" style="letter-spacing: 1.1pt; color: #681C36; ">¿No tienes cuenta? ¡Regístrate ahora!</a>
+			</center>
+		</div>
+		
+		
+		</div>
+		
+		<script type="text/javascript">window.addEventListener('load', inicioSesion, true);</script>
+	</body>
 </html>

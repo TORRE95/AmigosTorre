@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<title>Inicio de sesión</title>
+</head>
+
+<body background="img/fondoIndex.jpg">
+<center>
+<h1 class="center-vertical" >Mobil Wash</h1>
+<form method="post">
+	<input type="text" placeholder=" &#128566; Usuario" required name="user" id="user"><br>
+	<input type="password" placeholder=" &#128272; Contraseña" required name="pass" id="pass"><br>
+	<input type="button" value="INGRESAR" class="bt bt-df" onClick="javascript:enviar_datos();">
+</form>
+<br><a href="html/singin.html">¿No tienes cuenta? Regístrate</a>
+</center>
+<script>
+	function enviar_datos() {
+		var user = document.getElementById('user').value;
+		var pass = document.getElementById('pass').value;
+		
+		$.ajax({
+			type:'POST',
+			url:'https://torreextra.000webhostapp.com/login.php',
+			data:('user='+user+'&pass='+pass),
+			success:function(respuesta) {
+				if(respuesta == 0){
+					alert('¡Bienvenido, ' + user + '!');window.location.replace('html/inicio.html');
+				}
+				else {
+					alert('Error al iniciar sesión');
+				}
+			alert(user+pass);
+			}
+		})
+	}
+</script>
+</body>
+</html>
