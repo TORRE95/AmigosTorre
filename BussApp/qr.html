@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>QR</title>
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/qrcode.min.js"></script>
+		<script type="text/javascript" src="js/qrcode.js"></script>
+		
+		<script type="text/javascript" src="js/qr.js"></script>
+		<link rel="stylesheet" href="estilos/qr.css">
+	</head>
+	<body>
+		<div class="contenedor">
+			<div class="titulo"><h1>Escanea este codigo en el lector de autobus</h1></div>
+			<div id="qrcode" onclick="location.href='historial.html'"></div>
+		</div>
+		
+		<script type="text/javascript">
+		new QRCode(document.getElementById("qrcode"), localStorage.getItem('qrruta'));
+		</script>
+		
+	</body>
+</html>

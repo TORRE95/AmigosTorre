@@ -2,10 +2,13 @@ function mostrar(){
 	var abre = document.getElementById("submenu");
 
 
-    if (abre.style.display == 'block') {
-        abre.style.display = "none";
+    if (abre.style.visibility == 'hidden') {
+        abre.style.visibility = "visible";
+        abre.style.opacity = '1';
     } else {
-        abre.style.display = "block";
+
+    	abre.style.visibility = 'hidden'
+        abre.style.opacity = "0";
         abre.style.zIndex = "99999";
     }
 }
@@ -14,7 +17,7 @@ function cargarHistorial() {
  	var idUsuario = localStorage.getItem('idUsuario');
  	//alert(idUsuario);
 	historialAjax = new XMLHttpRequest();
-	historialAjax.open('GET', "php/selectHistorial.php?id="+idUsuario);
+	historialAjax.open('GET', "https://bus-app.000webhostapp.com/selectHistorial.php?id="+idUsuario);
 	historialAjax.send();
 	historialAjax.onreadystatechange = function(){
 		if (historialAjax.readyState == 4 && historialAjax.status == 200) {
@@ -83,7 +86,7 @@ function insertarHistorial(){
 
 			//alert(idUsuario);
 			nuevoRegistroAjax = new XMLHttpRequest();
-			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.open('GET', 'https://bus-app.000webhostapp.com/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 			nuevoRegistroAjax.send();
 			alert("Pagado exitosamnte!");
 
@@ -95,9 +98,9 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								
+								localStorage.setItem('qrruta', '[Ruta A, Precio: 8.50, 11:25]');
 								//alert("Insertado al historial");
-								window.location.href='inicio.html';
+								window.location.href='qr.html';
 							}
 							else{
 
@@ -117,7 +120,7 @@ function insertarHistorial(){
 
 
 			nuevoRegistroAjax = new XMLHttpRequest();
-			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.open('GET', 'https://bus-app.000webhostapp.com/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 			nuevoRegistroAjax.send();
 			alert("Pagado exitosamnte!");
 			nuevoRegistroAjax.onreadystatechange = function(){
@@ -127,7 +130,8 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								window.location.href='inicio.html';
+								localStorage.setItem('qrruta', '[Ruta B, Precio: 8.50, 11:25]');
+								window.location.href='qr.html';
 								//alert("Insertado al historial");
 							}
 							else{
@@ -148,9 +152,9 @@ function insertarHistorial(){
 
 			//alert(idUsuario);
 			nuevoRegistroAjax = new XMLHttpRequest();
-			nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+			nuevoRegistroAjax.open('GET', 'https://bus-app.000webhostapp.com/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 			nuevoRegistroAjax.send();
-			alert("Pagado exitosamnte!");
+			
 			nuevoRegistroAjax.onreadystatechange = function(){
 			
 
@@ -158,8 +162,9 @@ function insertarHistorial(){
 							
 							if (nuevoRegistroAjax.responseText=="1") {
 								//lo que hace cuando sale bien el registro
-								window.location.href='inicio.html';
-								
+								localStorage.setItem('qrruta', '[Ruta C, Precio: 8.50, 11:25]');
+								window.location.href='qr.html';
+								alert("Pagado exitosamnte!");
 							}
 							else{
 
@@ -178,7 +183,7 @@ function insertarHistorial(){
 
 				//alert(idUsuario);
 				nuevoRegistroAjax = new XMLHttpRequest();
-				nuevoRegistroAjax.open('GET', 'php/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
+				nuevoRegistroAjax.open('GET', 'https://bus-app.000webhostapp.com/insertarHistorial.php?ruta='+ruta+'&monto='+monto+'&idUsuario='+idUsuario);
 				nuevoRegistroAjax.send();
 				alert("Pagado exitosamnte!");
 
@@ -189,8 +194,9 @@ function insertarHistorial(){
 								
 								if (nuevoRegistroAjax.responseText=="1") {
 									//lo que hace cuando sale bien el registro
-									window.location.href='inicio.html';
-									
+									localStorage.setItem('qrruta', '[Ruta D, Precio: 8.50, 11:25]');
+									window.location.href='qr.html';
+									alert("Pagado exitosamnte!");
 								}
 								else{
 
@@ -219,7 +225,7 @@ function registrar() {
 	
 	
 			registroAjax = new XMLHttpRequest();
-			registroAjax.open('GET', "php/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass="+pass1+"&ape="+apellido+"&cel="+celular);
+			registroAjax.open('GET', "https://bus-app.000webhostapp.com/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass="+pass1+"&ape="+apellido+"&cel="+celular);
 			registroAjax.send();
 			alert("¡Registrado exitosamente!");
 
@@ -247,17 +253,17 @@ function inicioSesion() {
 
 	var pass = document.getElementById('pass').value;
 
-
-
 	if(celular != "" && pass != ""){
+		console.log("Ajax");
 		inicioAjax = new XMLHttpRequest();
-		inicioAjax.open('GET', 'php/selectUsuarios.php?cel='+celular+'&pass='+pass);
+		inicioAjax.open('GET', 'https://bus-app.000webhostapp.com/selectUsuarios.php?cel='+celular+'&pass='+pass);
 		inicioAjax.send();
 		inicioAjax.onreadystatechange = function(){
 			if (inicioAjax.readyState == 4 && inicioAjax.status == 200) {
 				if (inicioAjax.responseText!="0") {
 						localStorage.setItem('idUsuario', inicioAjax.responseText);
-						window.location.assign('inicio.html');
+						window.location.href = 'inicio.html';
+						
 					}else{
 						alert("Datos incorrectos.")
 					}

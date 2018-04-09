@@ -3,78 +3,226 @@
     <head>
         <title></title>
         <meta charset="utf-8">
-         <script type="text/javascript" src="js/funciones.js"></script>
+        <script type="text/javascript" src="js/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="estilos/estilo.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
         <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
     </head>
     <body>
-        <nav id="navegar"><img src="img/menu-white.png" onclick="mostrar()"></nav>
+    <nav id="navegar"><img src="img/menu-white.png" onclick="mostrar()"></nav>
+    <div class="panel" id="submenu" style="visibility: hidden; opacity: 0;">
+        <ul class="menus">
+            <li><a href="perfil.html">Perfil</a></li>
+            <li><a href="historial.html">Historial</a></li>
+            <li><a href="index.html">Cerrar Sesión</a></li>
+        </ul>
+        
+    </div>
+    
+    <div id="map"></div>
+    <div id="content" onclick="location.href= 'pago.html'" style="cursor: pointer; color: red;; font-weight: bolder;">
+      Ruta A 
+    </div>
+    <div id="contentB" onclick="location.href= 'pago.html'" style="cursor: pointer; color: blue; font-weight: bolder;">
+      Ruta B 
+    </div>
+    <div id="contentC" onclick="location.href= 'pago.html'" style="cursor: pointer; color: #FA58F4; font-weight: bolder;">
+      Ruta C 
+    </div>
+    <div id="contentD" onclick="location.href= 'pago.html'" style="cursor: pointer; color: #FA8258; font-weight: bolder;">
+      Ruta D 
+    </div>
 
-        <div class="panel" id="submenu">
-            <ul class="menus">
-                <li>Perfil</li>
-                <li><a href="historial.html">Historial</a></li>
-                <li><a href="index.html">Cerrar Sesión</a></li>
-            </ul>
-            
-        </div>
-        
-        <div id="map"></div>
-        <script>
-        // This example creates a 2-pixel-wide red polyline showing the path of
-        // the first trans-Pacific flight between Oakland, CA, and Brisbane,
-        // Australia which was made by Charles Kingsford Smith.
-        function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: {lat: 20.5218493, lng: -100.8159036},
-        mapTypeId: 'terrain'
-        });
-        //ruta1
-        var flightPlanCoordinates = [
-        {lat: 20.5193333, lng: -100.8098611111111},
-        {lat: 20.5196389, lng: -100.81383333333333},
-        {lat: 20.5310556, lng: -100.8128611111111},
-        {lat: 20.5309444, lng: -100.81875}
-        ];
-        var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-        });
-        flightPath.setMap(map);
-        //ruta 2
-        var flightPlanCoordinates = [
-        {lat: 20.5181667, lng: -100.85541666666666},
-        {lat: 20.5189444, lng: -100.84049999999999},
-        {lat: 20.5099444, lng: -100.8175},
-        {lat: 20.4963611, lng: -100.82005555555556}
-        ];
-        var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-        geodesic: true,
-        strokeColor: '#000FF0',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-        });
-        flightPath.setMap(map);
-        }
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyMbdtLt_T5XYedMu_HWwTdjGTg6a0lk&callback=initMap">
-        </script>
-        
-        <nav class="navbar">
-            <ul class="rutas">
-                <a onclick="rutaA()"><li class="ruta" id="rutaA"><span><label>RUTA A</label></span><span id="precio"><label>$12.00</label></span></li></a>
-                <a onclick="rutaB()"><li class="ruta" id="rutaB"><span><label>RUTA B</label></span><span id="precio"><label>$8.00</label></span></li></a>
-                <a onclick="rutaC()"><li class="ruta" id="rutaC"><span><label>RUTA C</label></span><span id="precio"><label>$9.50</label></span></li></a>
-                <a onclick="rutaD()"><li class="ruta" id="rutaD"><span><label>RUTA D</label></span><span id="precio"><label>$15.00</label></span></li></a>
-            </ul>
-        </nav>
-    </body>
+    <script>
+    // This example creates a 2-pixel-wide red polyline showing the path of
+    // the first trans-Pacific flight between Oakland, CA, and Brisbane,
+    // Australia which was made by Charles Kingsford Smith.
+    function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {lat: 20.5218493, lng: -100.8159036},
+    mapTypeId: 'terrain'
+    });
+    definePopupClass();
+    popup = new Popup(
+    new google.maps.LatLng(20.519532, -100.810953),
+    document.getElementById('content'));
+    popup.setMap(map);
+
+    popup = new Popup(
+    new google.maps.LatLng(20.512939, -100.823785),
+    document.getElementById('contentB'));
+    popup.setMap(map);
+
+    popup = new Popup(
+    new google.maps.LatLng(20.526334, -100.832269),
+    document.getElementById('contentC'));
+    popup.setMap(map);
+
+    popup = new Popup(
+    new google.maps.LatLng(20.516168, -100.796326),
+    document.getElementById('contentD'));
+    popup.setMap(map);
+
+    /** Defines the Popup class. */
+    function definePopupClass() {
+    /**
+    * A customized popup on the map.
+    * @param {!google.maps.LatLng} position
+    * @param {!Element} content
+    * @constructor
+    * @extends {google.maps.OverlayView}
+    */
+    Popup = function(position, content) {
+    this.position = position;
+    content.classList.add('popup-bubble-content');
+    var pixelOffset = document.createElement('div');
+    pixelOffset.classList.add('popup-bubble-anchor');
+    pixelOffset.appendChild(content);
+    this.anchor = document.createElement('div');
+    this.anchor.classList.add('popup-tip-anchor');
+    this.anchor.appendChild(pixelOffset);
+    // Optionally stop clicks, etc., from bubbling up to the map.
+    this.stopEventPropagation();
+    };
+    // NOTE: google.maps.OverlayView is only defined once the Maps API has
+    // loaded. That is why Popup is defined inside initMap().
+    Popup.prototype = Object.create(google.maps.OverlayView.prototype);
+    /** Called when the popup is added to the map. */
+    Popup.prototype.onAdd = function() {
+    this.getPanes().floatPane.appendChild(this.anchor);
+    };
+    /** Called when the popup is removed from the map. */
+    Popup.prototype.onRemove = function() {
+    if (this.anchor.parentElement) {
+    this.anchor.parentElement.removeChild(this.anchor);
+    }
+    };
+    /** Called when the popup needs to draw itself. */
+    Popup.prototype.draw = function() {
+    var divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+    // Hide the popup when it is far out of view.
+    var display =
+    Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
+    'block' :
+    'none';
+    if (display === 'block') {
+    this.anchor.style.left = divPosition.x + 'px';
+    this.anchor.style.top = divPosition.y + 'px';
+    }
+    if (this.anchor.style.display !== display) {
+    this.anchor.style.display = display;
+    }
+    };
+    /** Stops clicks/drags from bubbling up to the map. */
+    Popup.prototype.stopEventPropagation = function() {
+    var anchor = this.anchor;
+    anchor.style.cursor = 'auto';
+    ['click', 'dblclick', 'contextmenu', 'wheel', 'mousedown', 'touchstart',
+    'pointerdown']
+    .forEach(function(event) {
+    anchor.addEventListener(event, function(e) {
+    e.stopPropagation();
+    });
+    });
+    };
+}
+    //ruta1
+    var flightPlanCoordinates = [
+    {lat: 20.498198, lng: -100.801727},
+    {lat: 20.514837, lng: -100.800484},
+    {lat: 20.515976, lng: -100.807839},
+    {lat: 20.515922, lng: -100.810209},
+    {lat: 20.517815, lng: -100.810736},
+    {lat: 20.5193333, lng: -100.8098611111111},
+    {lat: 20.5196389, lng: -100.81383333333333},
+    {lat: 20.5310556, lng: -100.8128611111111},
+    {lat: 20.5309444, lng: -100.81875},
+    {lat: 20.535979, lng: -100.819560},
+    {lat: 20.535384, lng: -100.829466},
+    {lat: 20.537389, lng: -100.830175},
+    {lat: 20.546149, lng: -100.841612},
+    {lat: 20.533965, lng: -100.846547}
+    ];
+    var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+    });
+    flightPath.setMap(map);
+    //ruta 2
+    var flightPlanCoordinates = [
+    {lat: 20.5181667, lng: -100.85541666666666},
+    {lat: 20.5189444, lng: -100.84049999999999},
+    {lat: 20.5099444, lng: -100.8175},
+    {lat: 20.4963611, lng: -100.82005555555556}
+    ];
+    var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#000FF0',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+    });
+    flightPath.setMap(map);
+    //ruta 3
+    var flightPlanCoordinates = [
+    {lat: 20.516699, lng: -100.894879},
+    {lat: 20.520608, lng: -100.837926},
+    {lat: 20.520850, lng: -100.836274},
+    {lat: 20.521408, lng: -100.835050},
+    {lat: 20.522412, lng: -100.833763},
+    {lat: 20.523734, lng: -100.832645},
+    {lat: 20.528516, lng: -100.830126},
+    {lat: 20.529763, lng: -100.829240},
+    {lat: 20.530694, lng: -100.828152},
+    {lat: 20.531372, lng: -100.826675},
+    {lat: 20.531704, lng: -100.824971},
+    {lat: 20.532095, lng: -100.819046},
+    {lat: 20.551401, lng: -100.822768},
+    {lat: 20.559357, lng: -100.822324},
+    {lat: 20.562952, lng: -100.821738},
+    {lat: 20.570476, lng: -100.822181},
+    {lat: 20.571095, lng: -100.820444},
+    {lat: 20.574989, lng: -100.815575}
+    ];
+    var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FA58F4',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+    });
+    flightPath.setMap(map);
+    //ruta 4
+    var flightPlanCoordinates = [
+    {lat: 20.486548, lng: -100.808649},
+    {lat: 20.509360, lng: -100.814508},
+    {lat: 20.509434, lng: -100.813216},
+    {lat: 20.509816, lng: -100.811321},
+    {lat: 20.517194, lng: -100.790773},
+    {lat: 20.517297, lng: -100.788034},
+    {lat: 20.515299, lng: -100.780169},
+    {lat: 20.531054, lng: -100.776307},
+    {lat: 20.548172, lng: -100.781369},
+    {lat: 20.549746, lng: -100.793750},
+    {lat: 20.543477, lng: -100.798471},
+    {lat: 20.543236, lng: -100.801990}
+    ];
+    var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FA8258',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+    });
+    flightPath.setMap(map);
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyMbdtLt_T5XYedMu_HWwTdjGTg6a0lk&callback=initMap">
+    </script>
+</body>
 </html>

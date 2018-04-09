@@ -6,11 +6,9 @@
 	padding: 0px;
 }
 #map {
-        height: 55%;
+        height: calc(100% - 30px);
         top: 0px;
-        width: 80%;
-        margin-left: 10%;
-        margin-top: 15px;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
 html{
@@ -21,11 +19,15 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #DDDDDD;
+    overflow-x: hidden;
 }
 #navegar{
-	width: 100%;
+	position: relative;
+	width: calc(100% - 20px);
 	height: 30px;
-	background-color:#71B280;
+	background-color:#001f3f;
+	padding: 10px;
 
 }
 #navegar>img{
@@ -36,24 +38,37 @@ body {
 #sumbenu{
 
 	display: none;
+	transition: all 2s linear;
+	visibility: hidden;
+    opacity:0;
 }
 .panel{
 
-	display: none;
 	position: absolute;
 	padding-left: 10px;
 	background-color: rgba(255,255,255,1);
 	width: 200px;
-	height: 15%;
+	height: 20%;
 	left: 0px;
 	border-radius: 5px;
 	border: 1px;
 	border-color: gray;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  padding: 12px 16px;
+  visibility: hidden;
+  opacity:0;
+  transition:opacity 0.3s linear;
+  z-index: 9999;
+
+
 }
 
 .panel > .menus > li{
 	position: relative;
-	margin-top: 10px;
+	margin-top: 20px;
+	list-style: none;
+  font-weight: bolder;
+  color: #001f3f;
 }
 
 
@@ -63,7 +78,7 @@ body {
 	padding: 5px;
 	margin-top: 10px;
 	width: 90%;
-	background-color: #ace5b9;
+	background-color: white;
 	position: relative;
 	border-radius: 5px;
 	border-style: solid;
@@ -89,8 +104,64 @@ a:link, a:hover, a:visited {
 #rutaB{
 	border-color: rgba(0,0,255,1);
 }
+#rutaC{
+	border-color: rgba(50,255,100,1);
+}
+#rutaD{
+	border-color: rgba(200,100,200,1);
+}
 
 .navbar{
 	position: relative;
 	left: 10px;
 }
+
+
+
+
+
+/* The location pointed to by the popup tip. */
+      .popup-tip-anchor {
+        height: 0;
+        position: absolute;
+        /* The max width of the info window. */
+        width: 200px;
+      }
+      /* The bubble is anchored above the tip. */
+      .popup-bubble-anchor {
+        position: absolute;
+        width: 100%;
+        bottom: /* TIP_HEIGHT= */ 8px;
+        left: 0;
+      }
+      /* Draw the tip. */
+      .popup-bubble-anchor::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* Center the tip horizontally. */
+        transform: translate(-50%, 0);
+        /* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+        width: 0;
+        height: 0;
+        /* The tip is 8px high, and 12px wide. */
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: /* TIP_HEIGHT= */ 8px solid white;
+      }
+      /* The popup bubble itself. */
+      .popup-bubble-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -100%);
+        /* Style the info window. */
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: sans-serif;
+        overflow-y: auto;
+        max-height: 60px;
+        box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+      }

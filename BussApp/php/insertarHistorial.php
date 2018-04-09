@@ -14,7 +14,13 @@
 		$query = "INSERT INTO historial (Ruta, Importe, idUsuario) VALUES('$ruta', '$importe', '$id');";
 		$insertar = $conexion->query($query);
 
-		echo($insertar);
+
+		if($insertar){
+			echo "1";
+		}
+		else{
+			echo "0";
+		}
 	
 
  ?>
