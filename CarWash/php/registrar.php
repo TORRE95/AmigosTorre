@@ -1,31 +1,16 @@
-<?php
-include("cn.php");
-$mail = $_POST['mail'];
-$user = $_POST['user'];
-$pass = $_POST['pass'];
-$pswrd = $_POST['pswrd'];
+<?php 
 
-# print($mail.$user.$pass.$pswrd);
+	require 'conexion.php';
+	$funciones = new Funciones();
+	$conexion = $funciones->conectar();
+	$conexion->set_charset("utf8");
+	$user = $_GET['user'];
+	$mail = $_GET['mail'];
+	$pass = $_GET['pass'];
+	$insert = "INSERT INTO usuarios (Usuario, Correo, Password) VALUES ('$user', '$mail', '$pass')";
+	$res = $conexion->query($insert);
+	echo($res);
 
-$con = conectar();
-
-if($pass == $pswrd) {
-	$verifica = mysqli_query($con, "select * from usuarios where usuario = '$user';");
-	if(mysqli_num_rows($verifica) > 0) {
-		echo 3;
-		exit;
-	}
 	
-	$query = "insert into usuarios(usuario, correo, contrasena) values('$user', '$mail', '$pass')";
-	$consulta = consultar($con, $query);
-	
-	if(!$consulta) {
-		echo 0;
-	} else {
-		echo 1;
-	}
-	mysqli_close($con);
-} else {
-	echo "<script>alert('¡Las contraseñas no coinciden!')</script>";
-	echo "<script>window.location.replace('../html/singin.html');</script>";
-}
+
+ ?>

@@ -1,24 +1,26 @@
-<?php
-include("cn.php");
-$con = conectar();
-$user = $_POST['user'];
-$pass = $_POST['pass'];
-session_start();
-$_SESSION['user'] = $user;
+<?php 
 
-$query = "select * from usuarios where usuario = '$user' and contrasena = '$pass'";
-$resultado = consultar($con, $query);
-$filas = mysqli_num_rows($resultado);
+	$user = $_GET['user'];
+	$pass = $_GET['pass'];
+	require_once 'conexion.php';
+	$funciones = new Funciones();
+	$conexion = $funciones->conectar();
+	$conexion->set_charset("utf8");
+	$query = "SELECT * FROM usuarios WHERE Usuario = '$user' AND Password = '$pass';";
+	$resultado = $conexion->query($query);
 
-//print($filas);
 
-//echo $user . $pass;
+	$arreglo = array();
+	while ($r = $resultado->fetch_object()) {
+		array_push($arreglo, array(
+			"idUsuario"=>$r->idUsuario,
+			"Usuario"=>$r->Usuario,
+			"Correo"=>$r->Correo, 
+			"Password"=>$r->Password
+			
+		));
+	}
 
-if($filas > 0) {
-	echo 0;
-} else {
-	echo 1;
-}
+	echo json_encode($arreglo);
 
-mysqli_free_result($resultado);
-mysqli_close($con);
+ ?>
