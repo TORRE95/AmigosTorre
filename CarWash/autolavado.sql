@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-03-2018 a las 03:33:38
+-- Tiempo de generación: 10-04-2018 a las 01:41:28
 -- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `autolavado`
+-- Base de datos: `mobilwasher`
 --
 
 -- --------------------------------------------------------
@@ -29,11 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `ordenes` (
   `id_orden` int(6) NOT NULL,
   `direccion` varchar(200) NOT NULL,
-  `entre_calles` varchar(200) NOT NULL,
-  `caracteristica` varchar(200) NOT NULL,
   `pago` varchar(16) NOT NULL,
-  `cliente` varchar(25) NOT NULL,
-  `fecha` date NOT NULL,
+  `idUsuario` int(3) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `paquete` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -41,11 +39,34 @@ CREATE TABLE `ordenes` (
 -- Volcado de datos para la tabla `ordenes`
 --
 
-INSERT INTO `ordenes` (`id_orden`, `direccion`, `entre_calles`, `caracteristica`, `pago`, `cliente`, `fecha`, `paquete`) VALUES
-(8, 'GNULinux', 'Kali y Parrot', 'Open Source', 'otro', 'ramby', '2018-03-30', 3),
-(9, 'Sillicon Valley', 'Facebook ', 'Money Money Money', 'credito', 'ramby', '2018-03-30', 1),
-(10, 'Sillicon Valley', 'Facebook ', 'Money Money Money', 'credito', 'ramby', '2018-03-30', 1),
-(11, 'La unica de Cortazar', 'No hay mas', 'Es una casa con vacas', 'otro', 'ramby', '2018-03-30', 2);
+INSERT INTO `ordenes` (`id_orden`, `direccion`, `pago`, `idUsuario`, `fecha`, `paquete`) VALUES
+(13, 'calle 3', 'credito', 23, '2018-04-09 23:34:15', 2),
+(14, 'calle 3', 'credito', 23, '2018-04-09 23:34:41', 2),
+(15, 'gjvhb', 'efectivo', 23, '2018-04-09 23:37:07', 1),
+(16, 'gcjvhkb', 'credito', 23, '2018-04-09 23:38:23', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sucursales`
+--
+
+CREATE TABLE `sucursales` (
+  `idSucursal` int(3) NOT NULL,
+  `nombreSucursal` varchar(50) NOT NULL,
+  `direccion` varchar(200) NOT NULL,
+  `dueño` varchar(200) NOT NULL,
+  `telefono` varchar(50) NOT NULL DEFAULT '2-10-16-16',
+  `horario` varchar(500) NOT NULL DEFAULT 'Jueves – Domingo 9:00 am – 6:00 pm',
+  `rutaFoto` varchar(200) NOT NULL DEFAULT '../img/logo1.png'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `sucursales`
+--
+
+INSERT INTO `sucursales` (`idSucursal`, `nombreSucursal`, `direccion`, `dueño`, `telefono`, `horario`, `rutaFoto`) VALUES
+(1, 'AutosLocos', 'Cristóbal Colón, Tarimoro, MEX', 'Sr. Jesús', '15-123-16-87', 'Jueves – Domingo 9:00 am – 6:00 pm', '../img/logo1.png');
 
 -- --------------------------------------------------------
 
@@ -54,23 +75,19 @@ INSERT INTO `ordenes` (`id_orden`, `direccion`, `entre_calles`, `caracteristica`
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(6) NOT NULL,
-  `usuario` varchar(25) NOT NULL,
-  `correo` varchar(100) NOT NULL,
-  `contrasena` varchar(150) NOT NULL
+  `idUsuario` int(6) NOT NULL,
+  `Usuario` varchar(25) NOT NULL,
+  `Correo` varchar(100) NOT NULL,
+  `Password` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `usuario`, `correo`, `contrasena`) VALUES
-(14, 'prueba', 'prueba.com', 'hola'),
-(15, 'prueba2', 'prueba.com', 'hola'),
-(16, 'prueba3', 'prueba.com', 'hola'),
-(17, 'prueba4', 'prueba.com', 'hola'),
-(18, 'prueba5', 'prueba.com', 'hola'),
-(22, 'ramby', 'ramby@ramby.com', '12345');
+INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Correo`, `Password`) VALUES
+(22, 'ramby', 'ramby@ramby.com', '12345'),
+(23, 'jorge', 'jorge@mail.com', '12345');
 
 --
 -- Índices para tablas volcadas
@@ -83,10 +100,16 @@ ALTER TABLE `ordenes`
   ADD PRIMARY KEY (`id_orden`);
 
 --
+-- Indices de la tabla `sucursales`
+--
+ALTER TABLE `sucursales`
+  ADD PRIMARY KEY (`idSucursal`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`idUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -96,12 +119,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `id_orden` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_orden` int(6) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `sucursales`
+--
+ALTER TABLE `sucursales`
+  MODIFY `idSucursal` int(3) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idUsuario` int(6) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

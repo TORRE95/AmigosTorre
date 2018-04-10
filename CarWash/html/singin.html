@@ -4,42 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/menuDes.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+<script src="../js/funciones.js"></script>
 <title>Registro</title>
 </head>
 
-<body background="../img/fondoIndex.jpg">
+<body>
 
 <center>
-<h1 class="center-vertical" style="color: aliceblue">Mobil Wash</h1>
-<form method="post">
+<h1 class="txt-cntr">Mobil Wash</h1>
+<form method="GET">
 	<input type="text" placeholder=" &#128231; Correo electrónico" required maxlength="100" name="mail" id="mail"><br>
 	<input type="text" placeholder=" &#128566; Usuario" required maxlength="25" name="user" id="user"><br>
 	<input type="password" placeholder=" &#128272; Contraseña" required maxlength="20" name="pass" id="pass"><br>
-	<input type="password" placeholder=" &#128272; Repite la contraseña" required maxlength="20" name="pswrd" id="pswrd"><br>
-	<input type="button" value="REGISTRARSE" class="bt bt-df" onClick="javascript:enviar_datos();">
+	<input type="password" placeholder=" &#128272; Repite la contraseña" required maxlength="20" name="pswrd" id="pass2"><br>
+	<input type="button" value="REGISTRARSE" class="bt bt-df" onclick="registrar();">
 </form>
 <br><a href="../index.html">¿Ya tienes cuenta? Inicia sesión</a>
 </center>
-<script>
-	function enviar_datos() {
-		var mail = document.getElementById('mail').value;
-		var user = document.getElementById('user').value;
-		var pass = document.getElementById('pass').value;
-		var pswrd = document.getElementById('pswrd').value;
-		
-		$.ajax({
-			type:'POST',
-			url:'../php/registrar.php',
-			data:('mail='+mail+'&user='+user+'&pass='+pass+'&pswrd='+pswrd),
-			success:function(respuesta) {
-				if(respuesta == 1) {alert('Registro exitoso');window.location.replace('../index.html');}
-				if(respuesta == 2) {alert('Error al registrarse');}
-				if(respuesta == 3) {alert('Usuario ya registrado, intenta con otro');}
-			}
-		})
-	}
-</script>
 </body>
 </html>
