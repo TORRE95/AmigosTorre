@@ -14,8 +14,9 @@ html{
 }
 body{
 	height: 100%;
-	background: linear-gradient(to bottom, #9cecfb, #65c7f7, #0052d4);
+	background: linear-gradient(to bottom, #7489A1, #516B8A, #26466D);
 }
+
 form{
 	margin-left: 30%;
 	position: relative;
@@ -31,6 +32,7 @@ form{
 	height: 30px;
 	color: white;
 	background-color:#BDBDBD;
+	color: white;
 }
 input{
 width: 60%
@@ -39,7 +41,11 @@ border:none;
 background-color: transparent;
 border-bottom: 1px solid;
 height: 30px;
+color: white;
 
+}
+label{
+	color: white;
 }
 form>input{
 	background-color:  #2196F3;

@@ -4,8 +4,10 @@
 	<meta charset="utf-8">
 	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="estilos/estiloDashboard.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="estilos/FontAwesome/fontawesome-all.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval' ; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
 </head>
 <body>
 	<div class="header">
@@ -15,11 +17,7 @@
 		<div class="titulo">
 			<h1>Copyclex</h1>
 		</div>
-		
-
-
 	</div>
-
 	<div class="contenedor">
 		
 			<div class="estadisticas">
@@ -27,11 +25,11 @@
 			</div>
 
 			
-			<div class="modulos" id="arriba">
-				<span onclick="window.location.assign('lugares.html');">Impresiones a color</span>
+			<div class="modulos" id="arriba" onclick="window.location.assign('lugares.html');">
+				<span >Impresiones a color</span>
 			</div>
-			<div class="modulos" id="arriba">
-				<span onclick="window.location.assign('lugares.html');">Impresiones Blanco y Negro.</span>
+			<div class="modulos" id="arriba" onclick="window.location.assign('lugares.html');">
+				<span >Impresiones Blanco y Negro.</span>
 			</div>
 			
 		

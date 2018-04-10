@@ -24,17 +24,20 @@ function cargarHistorial() {
 			historial = JSON.parse(historialAjax.responseText);
 			for (var i = 0; i < historial.length; i++) {
 				var info = 
-						"<div class='viajeIzq'>"+
-							"<ul>"+
-								"<li><label>"+historial[i].ruta+"</label></li>"+
-								"<li><label>"+historial[i].fecha+"</label></li>"+
-							"</ul>"+
-						"</div>"+
-						"<div class='viajeDer'>"+
-							"<ul>"+
-								"<li><label>$"+historial[i].importe+"</label></li>"+
-							"</ul>"+
-						"</div>";
+
+						"<div class='viaje'>"+
+							"<div class='viajeIzq'>"+
+								"<ul>"+
+									"<li><label>"+historial[i].ruta+"</label></li>"+
+									"<li><label>"+historial[i].fecha+"</label></li>"+
+								"</ul>"+
+							"</div>"+
+							"<div class='viajeDer'>"+
+								"<ul>"+
+									"<li><label>$"+historial[i].importe+"</label></li>"+
+									"</ul>"+
+							"</div>"+
+						"</div";
 				document.querySelector('section').innerHTML += info;
 			}
 			

@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="js/funciones.js"></script>
 	<link rel="stylesheet" type="text/css" href="estilos/estilosPago.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval' ; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
 </head>
 <body>
 	<form method="POST">
@@ -17,7 +18,7 @@
 			Número de tarjeta<br>
 			<input type="number" name="numeroTarjeta" minlength="16" maxlength="16" required>
 		</label><br><br>
-		Fecha de vencimiento<br>
+		<label>Fecha de vencimiento</label><br>
 		<select name="mes" class="fecha">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -50,7 +51,7 @@
 			Código de Verificación<br>
 			<input type="number" name="cv" required  minlength="3" maxlength="3"><br>
 		</label><br><br>
-		<input type="submit" name="agregar" value="Pagar" onclick="window.location.assign('confirmacion.html');">
+		<input type="button" name="agregar" value="Pagar" onclick="window.location.assign('confirmacion.html');">
 	</form>
 </body>
 </html>
