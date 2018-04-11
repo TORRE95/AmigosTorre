@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inicio/Sucursales</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/menuDes.css">
+		<link rel="stylesheet" type="text/css" href="../css/Fonts/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="../css/FontAwesome/fontawesome-all.css">
+		<script src="../js/funciones.js"></script>
+	</head>
+	<body>
+		<script>
+		window.location.hash = "no-back-button";
+		window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+		window.onhashchange = function() { window.location.hash = "no-back-button"; }
+		</script>
+		<div id="sidebar" class="sidebar">
+			<ul class="menu">
+				<li><a href="inicio.html">Autolavados</a></li>
+				<li><a href="wwa.html">Acerca de</a></li>
+				<li><a href="privacy.html">Aviso de Privacidad</a></li>
+				<li><a href="../index.html">Cerrar Sesión</a></li>
+			</ul>
+		</div>
+		<div class="nav-bar">
+			<div id="contenido">
+				<i id="abrir" class="abrir-cerrar fas fa-bars" onclick="mostrar()" style="color: white"></i>
+				<i id="cerrar" class="abrir-cerrar fas fa-bars" onclick="ocultar()" style="color: white"></i>
+			</div>
+			<h1 class="txt-cntr">MobilWash</h1>
+		</div>
+		<center>
+		<h1 class="center-vertical">¿Quiénes somos?</h1>
+		<div class="container">
+			<h2>MISIÓN</h2>
+			<p class="txt-jtfy">Mobil Wash es una aplicación dedicada a vincular al cliente con el servicio de auto lavados a domicilio.</p>
+		</div>
+		<div class="container">
+			<h2>VISIÓN</h2>
+			<p class="txt-jtfy">Llegar a ser la aplicación mejor posicionada en cuanto a servicios de lavado de autos a domicilio en el 2018, así como satisfacer las necesidades de nuestros clientes.</p>
+		</div>
+		<div class="container">
+			<h2>NUESTROS VALORES</h2>
+			<b class="txt-jtfy">• Transparencia: </b><br>
+			<p class="txt-jtfy">Damos la información más clara y precisa; y así mismo poder brindarle una mejor confianza.
+			</p>
+			<b class="txt-jtfy">• Profesionalidad: </b><br>
+			<p class="txt-jtfy">Trabajamos en función de un buen uso a través de la confidencialidad en los datos personales.</p>
+			<b class="txt-jtfy">• Comunicación: </b><br>
+			<p class="txt-jtfy">Te brindamos la mejor facilidad de intercomunicarse con los auto-lavados.</p>
+			<b class="txt-jtfy">• Compromiso social: </b><br>
+			<p class="txt-jtfy">Ofrecemos el confort y la comodidad de acuerdo al ajuste de las necesidades de cada usuario.</p>
+		</div><br>
+		</center>
+	</body>
+</html>

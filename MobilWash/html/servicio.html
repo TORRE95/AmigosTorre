@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/menuDes.css">
+		<link rel="stylesheet" type="text/css" href="../css/Fonts/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="../css/FontAwesome/fontawesome-all.css">
+		<script src="../js/funciones.js"></script>
+		<title>Pedir servicio</title>
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval' ; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
+	</head>
+	<body onload="printNombre();" id="servicio">
+		<script>
+		window.location.hash = "no-back-button";
+		window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+		window.onhashchange = function() { window.location.hash = "no-back-button"; }
+		</script>
+		<div class="nav-bar">
+			<h1 class="txt-cntr">MobilWash</h1>
+		</div>
+		<center>
+		<form action="../php/servicios.php" method="get" id='pago'>
+			<label style="color: #ffe9bf;">Nombre</label>
+			<input type="text" style="border: none; border-bottom: 2px solid; background-color: transparent; text-align: left;" id='nombreUser' disabled>
+			<label style="color: #ffe9bf;">Dirección</label>
+			<input type="text" placeholder=" Dirección" required maxlength="200" name="dir" id="dir" required><br>
+			<label style="color: #ffe9bf;">Entre Calles</label>
+			<input type="text" placeholder=" Entre calles" required maxlength="200" name="ent" id="ent"><br>
+			<label style="color: #ffe9bf;">Descripción del domicilio</label>
+			<input type="text" placeholder=" Característica(s)" required maxlength="200" name="car" id="car"><br>
+			<select name="pag" id="pag">
+				<option value="efectivo">Efectivo</option>
+				<option value="credito">Tarjeta de Crédito</option>
+				<option value="debito">Tarjeta de Débito</option>
+				<option value="otro">Otro</option>
+			</select><br>
+			<select name="paq" id="paq">
+				<option value="1">Paquete I</option>
+				<option value="2">Paquete II</option>
+				<option value="3">Paquete III</option>
+			</select><br>
+			<input type="button" value="SOLICITAR" class="bt bt-df" onclick="enviar_datos();">
+		</form>
+		</center>
+	</body>
+</html>
