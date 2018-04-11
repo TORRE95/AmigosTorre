@@ -16,7 +16,9 @@ body{
 	height: 100%;
 	background: linear-gradient(to bottom, #7489A1, #516B8A, #26466D);
 }
-
+img[src*=https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png]{
+	display: none;
+}
 form{
 	margin-left: 30%;
 	position: relative;
